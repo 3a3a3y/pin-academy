@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Как продвигаться в Pinterest в 2026 году - PinInstinct</title>
+<meta name="description" content="Инструкция от практика: 1,48 млн показов за 3 месяца без рекламы. Пошагово: аккаунт, доски, ключевые слова, заголовки, ритм.">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  :root{--red:#C41E1E;--bg:#FFFAF5;--bg2:#F5F0EB;--text:#1A1A1A;--muted:#6B6B6B;--border:#E5E0DA;}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;background:var(--bg);color:var(--text);font-size:17px;line-height:1.75;}
+
+  /* NAV */
+  nav{background:var(--text);padding:16px 24px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100;}
+  .nav-logo{color:#fff;font-weight:700;font-size:18px;text-decoration:none;letter-spacing:-0.3px;}
+  .nav-logo span{color:var(--red);}
+  .nav-cta{background:var(--red);color:#fff;padding:8px 20px;border-radius:6px;text-decoration:none;font-size:14px;font-weight:600;white-space:nowrap;}
+
+  /* HERO */
+  .hero{background:var(--text);color:#fff;padding:72px 24px 64px;text-align:center;}
+  .hero-tag{display:inline-block;background:var(--red);color:#fff;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:4px 12px;border-radius:4px;margin-bottom:24px;}
+  .hero h1{font-size:clamp(26px,4vw,42px);font-weight:700;line-height:1.2;max-width:760px;margin:0 auto 20px;letter-spacing:-0.5px;}
+  .hero-lead{font-size:17px;color:rgba(255,255,255,0.75);max-width:560px;margin:0 auto 32px;}
+  .hero-stats{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;margin-top:40px;padding-top:40px;border-top:1px solid rgba(255,255,255,0.12);}
+  .stat{text-align:center;}
+  .stat-num{font-size:28px;font-weight:700;color:var(--red);}
+  .stat-label{font-size:13px;color:rgba(255,255,255,0.6);margin-top:2px;}
+
+  /* ARTICLE BODY */
+  .article-wrap{max-width:760px;margin:0 auto;padding:64px 24px;}
+
+  /* INTRO BLOCK */
+  .intro-block{background:var(--bg2);border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:24px 28px;margin-bottom:48px;font-size:16px;line-height:1.7;}
+
+  h2{font-size:clamp(20px,3vw,28px);font-weight:700;margin:56px 0 20px;letter-spacing:-0.3px;line-height:1.3;}
+  h3{font-size:18px;font-weight:600;margin:36px 0 14px;}
+  p{margin-bottom:20px;}
+  ul,ol{padding-left:24px;margin-bottom:20px;}
+  li{margin-bottom:10px;}
+  strong{font-weight:600;}
+  em{font-style:italic;}
+  a{color:var(--red);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  hr{border:none;border-top:1px solid var(--border);margin:48px 0;}
+
+  /* QUOTE / CALLOUT */
+  blockquote{background:var(--bg2);border-left:3px solid var(--red);border-radius:0 8px 8px 0;padding:20px 24px;margin:28px 0;font-size:15px;color:#444;}
+  blockquote strong{color:var(--text);}
+
+  /* NUMBERS GRID */
+  .numbers-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px;margin:28px 0;}
+  .num-card{background:var(--text);color:#fff;border-radius:10px;padding:20px 16px;text-align:center;}
+  .num-big{font-size:28px;font-weight:700;color:var(--red);display:block;}
+  .num-desc{font-size:13px;color:rgba(255,255,255,0.7);margin-top:6px;line-height:1.4;}
+
+  /* STEPS */
+  .steps{counter-reset:step;margin:28px 0;}
+  .step{display:flex;gap:20px;margin-bottom:32px;align-items:flex-start;}
+  .step-num{min-width:40px;height:40px;background:var(--red);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;flex-shrink:0;margin-top:2px;}
+  .step-body h3{margin-top:0;margin-bottom:8px;font-size:17px;}
+  .step-body p{margin-bottom:0;font-size:15px;color:#444;}
+
+  /* FORMULA CARDS */
+  .formula-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin:24px 0;}
+  .formula-card{background:var(--bg2);border-radius:10px;padding:20px;}
+  .formula-name{font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:0.5px;color:var(--red);margin-bottom:8px;}
+  .formula-example{font-size:14px;color:#555;font-style:italic;}
+
+  /* ERRORS */
+  .error-block{border:1px solid var(--border);border-radius:10px;padding:24px;margin-bottom:20px;}
+  .error-title{font-weight:700;font-size:16px;margin-bottom:10px;display:flex;align-items:center;gap:10px;}
+  .error-tag{background:#FEE2E2;color:#991B1B;font-size:11px;font-weight:700;padding:3px 8px;border-radius:4px;text-transform:uppercase;letter-spacing:0.5px;}
+
+  /* TIMELINE */
+  .timeline{margin:28px 0;}
+  .tl-item{display:flex;gap:20px;margin-bottom:24px;}
+  .tl-dot{min-width:12px;height:12px;background:var(--red);border-radius:50%;margin-top:7px;flex-shrink:0;}
+  .tl-period{font-weight:700;font-size:15px;min-width:120px;flex-shrink:0;}
+  .tl-desc{font-size:15px;color:#444;}
+
+  /* FOR WHOM */
+  .whom-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:28px 0;}
+  .whom-card{border-radius:10px;padding:24px;}
+  .whom-yes{background:#DCFCE7;border:1px solid #BBF7D0;}
+  .whom-no{background:#FEF2F2;border:1px solid #FECACA;}
+  .whom-title{font-weight:700;font-size:15px;margin-bottom:14px;}
+  .whom-yes .whom-title{color:#166534;}
+  .whom-no .whom-title{color:#991B1B;}
+  .whom-list{list-style:none;padding:0;}
+  .whom-list li{font-size:14px;padding:6px 0;border-bottom:1px solid rgba(0,0,0,0.06);color:#333;}
+  .whom-list li:last-child{border-bottom:none;}
+
+  /* CTA BLOCK */
+  .cta-block{background:var(--text);color:#fff;border-radius:12px;padding:40px;text-align:center;margin:56px 0;}
+  .cta-block h3{color:#fff;margin:0 0 12px;font-size:22px;}
+  .cta-block p{color:rgba(255,255,255,0.7);margin-bottom:24px;font-size:15px;}
+  .cta-btn{display:inline-block;background:var(--red);color:#fff;padding:14px 32px;border-radius:8px;font-weight:700;font-size:16px;text-decoration:none;transition:opacity 0.2s;}
+  .cta-btn:hover{opacity:0.85;text-decoration:none;}
+
+  /* SUMMARY */
+  .summary{background:var(--bg2);border-radius:12px;padding:36px;margin:48px 0;}
+  .summary h2{margin-top:0;}
+  .summary-list{list-style:none;padding:0;}
+  .summary-list li{padding:10px 0;border-bottom:1px solid var(--border);font-size:15px;display:flex;gap:12px;align-items:flex-start;}
+  .summary-list li:last-child{border-bottom:none;}
+  .summary-list li::before{content:"→";color:var(--red);font-weight:700;flex-shrink:0;margin-top:1px;}
+
+  /* AUTHOR */
+  .author{border-top:1px solid var(--border);padding-top:32px;margin-top:48px;font-size:14px;color:var(--muted);}
+  .author strong{color:var(--text);}
+
+  /* FOOTER */
+  footer{background:var(--text);color:rgba(255,255,255,0.6);text-align:center;padding:32px 24px;font-size:13px;}
+  footer a{color:rgba(255,255,255,0.6);}
+
+  @media(max-width:640px){
+    .hero-stats{gap:24px;}
+    .whom-grid{grid-template-columns:1fr;}
+    .formula-grid{grid-template-columns:1fr;}
+    .numbers-grid{grid-template-columns:repeat(2,1fr);}
+    .tl-period{min-width:90px;}
+    .cta-block{padding:28px 20px;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/ru/" class="nav-logo">PIN<span>INSTINCT</span></a>
+  <a href="/ru/" class="nav-cta">Курс →</a>
+</nav>
+
+<div class="hero">
+  <span class="hero-tag">Инструкция от практика</span>
+  <h1>Как продвигаться в Pinterest в 2026 году</h1>
+  <p class="hero-lead">Без рекламы, без рилсов, без ежедневного присутствия. 1,48 миллиона показов за три месяца — и как это повторить.</p>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num">1,48 млн</div><div class="stat-label">показов за 3 месяца</div></div>
+    <div class="stat"><div class="stat-num">200+</div><div class="stat-label">читателей в месяц</div></div>
+    <div class="stat"><div class="stat-num">0 руб.</div><div class="stat-label">на продвижение</div></div>
+  </div>
+</div>
+
+<div class="article-wrap">
+
+  <div class="intro-block">
+    Я веду блог о продвижении в Pinterest - и продвигаю его только через Pinterest. Без рекламных закупок. Без коллабораций. Без рилсов. Просто пины - и люди, которые приходят из поиска сами. Это не история успеха. Это инструкция.
+  </div>
+
+  <blockquote><strong>Спойлер:</strong> 2026 год - возможно, последний момент, когда в русскоязычном Pinterest можно занять нишу почти без конкуренции. Через год здесь будет гораздо теснее.</blockquote>
+
+  <h2>Что такое Pinterest и почему все его недооценивают</h2>
+
+  <p>Большинство людей думают о Pinterest как о доске с картинками для вдохновения. Рецепты, интерьеры, свадебные образы. Это огромная ошибка, которая стоит им трафика.</p>
+
+  <p>Pinterest - это визуальный поисковик. Люди приходят сюда не смотреть на чужую жизнь. Они приходят с конкретным вопросом - и ищут ответ.</p>
+
+  <p><strong>96% самых популярных запросов на Pinterest - без упоминания конкретного бренда.</strong> Человек ищет не «курс по Pinterest у Полины», а «как продвигаться в Pinterest бесплатно». И в этот момент ты либо есть в поиске - либо нет.</p>
+
+  <div class="numbers-grid">
+    <div class="num-card"><span class="num-big">619 млн</span><div class="num-desc">активных пользователей в месяц. Рекорд 2025 года</div></div>
+    <div class="num-card"><span class="num-big">80 млрд</span><div class="num-desc">поисковых запросов в месяц - не листаний ленты</div></div>
+    <div class="num-card"><span class="num-big">89%</span><div class="num-desc">вирусных пинов - обычная статика без видео (Tailwind)</div></div>
+    <div class="num-card"><span class="num-big">60%</span><div class="num-desc">сохранений - с пинов старше 1 года. Контент здесь не умирает</div></div>
+  </div>
+
+  <h2>Почему именно сейчас - и почему через год может быть поздно</h2>
+
+  <p>В России Pinterest стал заметен как инструмент продвижения только в 2024 году - после ограничений для Instagram. До этого платформу почти игнорировали.</p>
+
+  <p>Сейчас здесь происходит редкая вещь: аудитория есть, активность высокая, но создателей контента на русском языке по-прежнему мало. Когда такое окно было открыто в Instagram - все, кто вошёл первыми, выиграли больше всего. Pinterest сейчас - примерно в том же моменте.</p>
+
+  <h2>Как это работает: механика от пина до клиента</h2>
+
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div><div class="step-body"><h3>Человек вводит запрос</h3><p>«Как продвигаться без рекламы» или «как привлечь подписчиков бесплатно»</p></div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-body"><h3>Pinterest показывает твой пин</h3><p>С заголовком, который точно отвечает на этот запрос</p></div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-body"><h3>Человек кликает</h3><p>Переходит на твой сайт по ссылке в описании пина</p></div></div>
+    <div class="step"><div class="step-num">4</div><div class="step-body"><h3>Читает, видит ценность</h3><p>Человек приходит тёплым - он сам искал то, что ты делаешь</p></div></div>
+    <div class="step"><div class="step-num">5</div><div class="step-body"><h3>Становится клиентом или читателем</h3><p>Без рекламы, без убеждений, без давления</p></div></div>
+  </div>
+
+  <h2>Что конкретно нужно сделать: пошаговая инструкция</h2>
+
+  <h3>1. Создать бизнес-аккаунт и правильно его оформить</h3>
+  <p>Бизнес-аккаунт - бесплатно и обязательно. Только он даёт доступ к аналитике. Профиль должен быть понятен за три секунды: что делаю - для кого - что человек получит - куда идти.</p>
+  <blockquote>Подтверди сайт в Pinterest. Это даёт аккаунту дополнительный авторитет. Занимает 15 минут. Почти никто не делает.</blockquote>
+
+  <h3>2. Создать правильные доски</h3>
+  <p>Доски - контекст для алгоритма. Первая доска, куда попадает пин, является прямым фактором ранжирования. <strong>Правило: название доски = поисковый запрос человека.</strong></p>
+  <p>❌ «Вдохновение» → ✅ «Продвижение в Pinterest для экспертов»<br>❌ «Моя работа» → ✅ «Как привлечь клиентов бесплатно»<br>❌ «Разное» → ✅ «Pinterest для психологов и коучей»</p>
+
+  <h3>3. Найти ключевые слова</h3>
+  <p>Открой Pinterest, введи тему своей ниши, смотри автоподсказки. Пять подсказок = пять готовых заголовков для пинов. Бесплатно, без сервисов, за 10 минут.</p>
+  <blockquote>Ключевые слова нужно ставить в четырёх местах: заголовок пина, описание (первые 100 символов), название доски, alt-текст. Пины с alt-текстом получают в среднем на 25% больше показов.</blockquote>
+
+  <h3>4. Делать пины, которые сохраняют</h3>
+  <p>Сохранение - главный сигнал алгоритму. Вопрос при создании каждого пина: не «это полезно?», а <strong>«это захочется сохранить?»</strong></p>
+  <p>Что сохраняют: конкретные инструкции, факты которые удивляют, разборы ошибок, сравнения, личные кейсы с цифрами. Форматы: вертикальный 2:3, белый фон с крупным текстом, карусель 3-5 слайдов.</p>
+
+  <h3>5. Заголовок - это всё</h3>
+  <p>80% людей читают заголовок пина и только 20% - всё остальное. Четыре формулы:</p>
+
+  <div class="formula-grid">
+    <div class="formula-card"><div class="formula-name">Конкретика</div><div class="formula-example">«3 вещи которые я делаю перед каждой публикацией»</div></div>
+    <div class="formula-card"><div class="formula-name">Вопрос с «ты»</div><div class="formula-example">«Почему твои пины не находят в поиске»</div></div>
+    <div class="formula-card"><div class="formula-name">Пробел в знании</div><div class="formula-example">«То что Pinterest делает с твоим пином в первые 48 часов»</div></div>
+    <div class="formula-card"><div class="formula-name">Противоречие</div><div class="formula-example">«Меньше пинов - больше трафика. Данные за 6 месяцев»</div></div>
+  </div>
+
+  <h3>6. Ритм важнее объёма</h3>
+  <p>5 пинов каждую неделю три месяца подряд работает лучше, чем 50 пинов за один вечер - и потом тишина. Начало: 3-5 пинов в неделю по одной теме. Алгоритм должен понять, про что ты.</p>
+
+  <h2>Три ошибки, которые обнуляют всю работу</h2>
+
+  <div class="error-block">
+    <div class="error-title"><span class="error-tag">Ошибка 1</span> Красивые пины без ключевых слов</div>
+    <p style="margin:0;font-size:15px;color:#444;">Люди делают отличный дизайн - и забывают, что Pinterest читает не картинку, а текст. Если в заголовке и описании нет слов, по которым ищут - пин просто не появится в выдаче.</p>
+    <blockquote style="margin:16px 0 0;">Тест: введи заголовок своего пина в поиск Pinterest. Видишь похожий контент? Значит ты в поиске. Нет - надо переписать.</blockquote>
+  </div>
+
+  <div class="error-block">
+    <div class="error-title"><span class="error-tag">Ошибка 2</span> Оценивать результаты через месяц</div>
+    <p style="margin:0;font-size:15px;color:#444;">По данным Tailwind, пики вирусности пина наступают через 1-2 года после публикации. Большинство бросает Pinterest именно тогда, когда нужно продолжать - в первые 2-3 месяца.</p>
+  </div>
+
+  <div class="error-block">
+    <div class="error-title"><span class="error-tag">Ошибка 3</span> Смешивать темы в одном аккаунте</div>
+    <p style="margin:0;font-size:15px;color:#444;">Если аккаунт одновременно про рецепты, психологию и путешествия - алгоритм не понимает, кому тебя показывать. Один аккаунт - одна основная тема.</p>
+  </div>
+
+  <h2>Сколько времени нужно и когда ждать результатов</h2>
+
+  <div class="timeline">
+    <div class="tl-item"><div class="tl-dot"></div><div><span class="tl-period" style="font-weight:700;font-size:15px;">Месяц 1-2.</span> <span style="font-size:15px;color:#444;">Мало показов. Нормально - алгоритм изучает аккаунт. Публикуй и не оценивай.</span></div></div>
+    <div class="tl-item"><div class="tl-dot"></div><div><span class="tl-period" style="font-weight:700;font-size:15px;">Месяц 3.</span> <span style="font-size:15px;color:#444;">Первые пины начинают расти. Видны паттерны: что сохраняют, на что кликают.</span></div></div>
+    <div class="tl-item"><div class="tl-dot"></div><div><span class="tl-period" style="font-weight:700;font-size:15px;">Месяц 4-6.</span> <span style="font-size:15px;color:#444;">Стабильный рост. Переходы на сайт становятся предсказуемыми.</span></div></div>
+    <div class="tl-item"><div class="tl-dot"></div><div><span class="tl-period" style="font-weight:700;font-size:15px;">Год+.</span> <span style="font-size:15px;color:#444;">Накопительный эффект. Пины, опубликованные год назад, выходят на пик.</span></div></div>
+  </div>
+
+  <h2>Кому подходит - и кому нет</h2>
+
+  <div class="whom-grid">
+    <div class="whom-card whom-yes">
+      <div class="whom-title">✓ Подходит</div>
+      <ul class="whom-list">
+        <li>Ведёшь блог и хочешь трафик без рекламы</li>
+        <li>Продаёшь услуги или обучение онлайн</li>
+        <li>Тема с визуальным потенциалом: психология, дизайн, финансы, эзотерика, еда, путешествия</li>
+        <li>Не хочешь быть на камере каждый день</li>
+      </ul>
+    </div>
+    <div class="whom-card whom-no">
+      <div class="whom-title">✗ Не подходит</div>
+      <ul class="whom-list">
+        <li>Ожидаешь результат через 2 недели</li>
+        <li>Не готов работать 3-6 месяцев системно</li>
+        <li>Узкоотраслевая ниша без визуальной составляющей</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="cta-block">
+    <h3>Хочешь разобраться системно?</h3>
+    <p>Курс PinInstinct - 7 уроков от нуля до стабильного трафика. С шаблонами, скринкастами и разбором твоего аккаунта. Второй поток стартует в мае.</p>
+    <a href="/ru/#pricing" class="cta-btn">Посмотреть курс →</a>
+  </div>
+
+  <div class="summary">
+    <h2 style="margin-top:0;">Резюме: что нужно запомнить</h2>
+    <ul class="summary-list">
+      <li>Pinterest - визуальный поисковик с 619 млн пользователей, а не соцсеть</li>
+      <li>Контент не умирает через 48 часов - 60% сохранений получают пины старше 1 года</li>
+      <li>89% вирусных пинов - обычная статика без видео. Камера не нужна</li>
+      <li>96% поисков без названий брендов - маленький эксперт конкурирует с крупным на равных</li>
+      <li>2026 год - последнее окно низкой конкуренции в русскоязычном Pinterest</li>
+      <li>Начать можно сегодня</li>
+    </ul>
+  </div>
+
+  <div class="author">
+    <p><strong>Полина Соколова</strong> - Pinterest-маркетолог, создатель курса PinInstinct.<br>
+    Веду аккаунт <a href="https://www.pinterest.com/pinaktivator" target="_blank">pinaktivator</a> - там видно, как работает всё, о чём написано выше.</p>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2026 PinInstinct · <a href="/ru/">Курс</a> · <a href="/ru/blog/">Блог</a></p>
+</footer>
+
+</body>
+</html>
