@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Быстрый старт в Pinterest - PinInstinct</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --red: #C41E1E;
+    --black: #1A1A1A;
+    --bg: #FFFAF5;
+    --bg2: #F5F0EB;
+    --bg3: #EDE8E2;
+    --white: #ffffff;
+    --text-muted: #6B6560;
+    --font-head: "Arial Black", "Helvetica Neue", Arial, sans-serif;
+    --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --max: 1140px;
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--black); font-family: var(--font-body); font-size: 16px; line-height: 1.6; }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--bg); border-bottom: 1px solid var(--bg3);
+    padding: 0 24px;
+  }
+  .nav-inner {
+    max-width: var(--max); margin: 0 auto;
+    display: flex; align-items: center; gap: 24px; height: 64px;
+  }
+  .logo { font-family: var(--font-head); font-size: 20px; text-decoration: none; color: inherit; flex-shrink: 0; }
+  .logo span { color: var(--red); }
+  .nav-back { font-size: 13px; color: var(--text-muted); text-decoration: none; margin-left: 0; }
+  .nav-back:hover { color: var(--red); }
+  .nav-sep { color: var(--bg3); }
+  .nav-title { font-size: 14px; font-weight: bold; }
+  .nav-price { margin-left: auto; display: flex; align-items: center; gap: 20px; }
+  .nav-price-num { font-family: var(--font-head); font-size: 22px; color: var(--red); }
+  .btn-buy {
+    background: var(--red); color: var(--white);
+    padding: 10px 24px; font-size: 13px; font-weight: bold;
+    text-decoration: none; white-space: nowrap; transition: background 0.2s;
+  }
+  .btn-buy:hover { background: #a01818; }
+
+  /* HERO */
+  .hero {
+    background: var(--black); color: var(--white);
+    padding: 80px 24px;
+  }
+  .hero-inner {
+    max-width: var(--max); margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+  }
+  .hero-tag { font-size: 11px; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; color: var(--red); margin-bottom: 20px; display: block; }
+  .hero h1 {
+    font-family: var(--font-head); font-size: clamp(32px, 4vw, 52px);
+    text-transform: uppercase; line-height: 1.05; letter-spacing: -1px; margin-bottom: 24px;
+  }
+  .hero-sub { font-size: 17px; line-height: 1.7; color: #ccc; margin-bottom: 40px; }
+  .hero-features { display: flex; flex-direction: column; gap: 12px; margin-bottom: 40px; }
+  .hero-feature { display: flex; gap: 12px; align-items: flex-start; font-size: 14px; color: #bbb; }
+  .hero-feature-dot { width: 6px; height: 6px; background: var(--red); border-radius: 50%; flex-shrink: 0; margin-top: 7px; }
+  .hero-cta { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
+  .btn-primary-lg {
+    display: inline-block;
+    background: var(--red); color: var(--white);
+    padding: 16px 40px; font-size: 15px; font-weight: bold;
+    text-decoration: none; transition: background 0.2s;
+  }
+  .btn-primary-lg:hover { background: #a01818; }
+  .hero-price-note { font-size: 24px; font-family: var(--font-head); color: var(--white); }
+  .hero-price-sub { font-size: 13px; color: #666; margin-top: 4px; }
+  .hero-right { position: relative; }
+  .hero-img { width: 100%; display: block; filter: grayscale(50%) contrast(1.1); }
+  .hero-stat-badge {
+    position: absolute; bottom: 32px; right: -16px;
+    background: var(--red); color: var(--white);
+    padding: 20px 24px;
+  }
+  .hero-stat-badge strong { font-family: var(--font-head); font-size: 32px; display: block; line-height: 1; }
+  .hero-stat-badge span { font-size: 12px; opacity: 0.85; margin-top: 4px; display: block; }
+
+  /* BODY CONTENT */
+  section { padding: 80px 24px; }
+  .container { max-width: var(--max); margin: 0 auto; }
+  .section-label { font-size: 11px; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; color: var(--red); margin-bottom: 16px; display: block; }
+  .section-title { font-family: var(--font-head); font-size: clamp(28px, 3.5vw, 44px); text-transform: uppercase; line-height: 1.05; letter-spacing: -0.5px; margin-bottom: 48px; }
+
+  /* STORY */
+  .story p { font-size: 17px; line-height: 1.85; color: #4A4540; margin-bottom: 20px; max-width: 720px; }
+
+  /* CHAPTERS */
+  .chapters { background: var(--bg2); }
+  .chapter-list { display: flex; flex-direction: column; gap: 2px; }
+  .chapter { border-bottom: 1px solid var(--bg3); }
+  .chapter-trigger {
+    display: flex; align-items: center; gap: 20px;
+    padding: 20px 0; cursor: pointer;
+    background: none; border: none; width: 100%; text-align: left;
+  }
+  .chapter-trigger:hover .chapter-name { color: var(--red); }
+  .chapter-num { font-family: var(--font-head); font-size: 13px; color: var(--red); width: 48px; flex-shrink: 0; }
+  .chapter-name { font-size: 15px; font-weight: bold; flex: 1; }
+  .chapter-icon { font-size: 16px; color: var(--text-muted); transition: transform 0.3s; }
+  .chapter.open .chapter-icon { transform: rotate(45deg); }
+  .chapter-body { display: none; padding: 0 0 24px 68px; font-size: 14px; line-height: 1.8; color: #4A4540; }
+  .chapter.open .chapter-body { display: block; }
+
+  /* WHAT YOU GET */
+  .get-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+    margin-top: 0;
+  }
+  .get-item {
+    background: var(--bg2); padding: 28px 24px;
+    display: flex; gap: 14px; align-items: flex-start;
+  }
+  .get-dot { width: 6px; height: 6px; background: var(--red); border-radius: 50%; flex-shrink: 0; margin-top: 8px; }
+  .get-text { font-size: 14px; line-height: 1.55; color: #4A4540; }
+
+  /* UPSELL */
+  .upsell {
+    background: var(--black); color: var(--white);
+    padding: 64px 24px;
+  }
+  .upsell-inner {
+    max-width: var(--max); margin: 0 auto;
+    display: flex; align-items: center; gap: 64px; flex-wrap: wrap;
+  }
+  .upsell-text { flex: 1; min-width: 280px; }
+  .upsell-text p { font-size: 16px; line-height: 1.7; color: #bbb; margin-top: 16px; }
+  .upsell-cta { flex-shrink: 0; }
+  .btn-outline-white {
+    display: inline-block; border: 1.5px solid rgba(255,255,255,0.3); color: var(--white);
+    padding: 14px 36px; font-size: 14px; font-weight: bold; text-decoration: none;
+    transition: all 0.2s;
+  }
+  .btn-outline-white:hover { border-color: var(--white); background: rgba(255,255,255,0.05); }
+
+  /* BUY PANEL */
+  .buy-panel { background: var(--bg2); padding: 64px 24px; }
+  .buy-panel-inner {
+    max-width: var(--max); margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+  }
+  .buy-panel h2 { font-family: var(--font-head); font-size: 36px; text-transform: uppercase; margin-bottom: 16px; }
+  .buy-panel p { font-size: 15px; color: var(--text-muted); line-height: 1.7; }
+  .buy-panel-right { text-align: center; }
+  .buy-price { font-family: var(--font-head); font-size: 72px; color: var(--red); line-height: 1; }
+  .buy-price-label { font-size: 14px; color: var(--text-muted); margin-bottom: 32px; }
+  .btn-buy-lg {
+    display: block; background: var(--red); color: var(--white);
+    padding: 18px 48px; font-size: 16px; font-weight: bold;
+    text-decoration: none; margin-bottom: 16px; transition: background 0.2s;
+    text-align: center;
+  }
+  .btn-buy-lg:hover { background: #a01818; }
+  .buy-see-all { font-size: 13px; color: var(--text-muted); text-decoration: none; display: block; }
+  .buy-see-all:hover { color: var(--red); }
+
+  /* FOOTER */
+  footer { background: var(--black); color: var(--white); padding: 48px 24px; }
+  .footer-inner { max-width: var(--max); margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+  .footer-logo { font-family: var(--font-head); font-size: 18px; text-decoration: none; color: var(--white); }
+  .footer-logo span { color: var(--red); }
+  .footer-nav { display: flex; gap: 24px; }
+  .footer-nav a { font-size: 13px; color: #999; text-decoration: none; }
+  .footer-nav a:hover { color: var(--white); }
+  .footer-copy { font-size: 12px; color: #444; }
+
+  @media (max-width: 900px) {
+    .hero-inner, .buy-panel-inner { grid-template-columns: 1fr; gap: 40px; }
+    .hero-right { display: none; }
+    .get-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 600px) {
+    section { padding: 56px 16px; }
+    .get-grid { grid-template-columns: 1fr; }
+    .nav-title { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><span>PIN</span>INSTINCT</a>
+    <span class="nav-sep">·</span>
+    <a href="index.html#pricing" class="nav-back">← Все форматы</a>
+    <div class="nav-price">
+      <span class="nav-price-num">1 200 ₽</span>
+      <a href="#buy" class="btn-buy">Купить на Zenclass</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div>
+      <span class="hero-tag">Уровень 1 · 7 глав</span>
+      <h1>Быстрый старт в Pinterest</h1>
+      <p class="hero-sub">Всё, что нужно знать, чтобы запустить Pinterest и получить первые переходы. От регистрации до работающей воронки.</p>
+      <div class="hero-features">
+        <div class="hero-feature"><div class="hero-feature-dot"></div><span>7 глав с текстом, скриншотами и видео</span></div>
+        <div class="hero-feature"><div class="hero-feature-dot"></div><span>Запись экрана - показываю каждый шаг</span></div>
+        <div class="hero-feature"><div class="hero-feature-dot"></div><span>Шаблоны, чек-листы, заголовки</span></div>
+        <div class="hero-feature"><div class="hero-feature-dot"></div><span>Бессрочный доступ</span></div>
+      </div>
+      <div class="hero-cta">
+        <div>
+          <div class="hero-price-note">1 200 ₽</div>
+          <div class="hero-price-sub">бессрочный доступ</div>
+        </div>
+        <a href="#buy" class="btn-primary-lg">Купить на Zenclass</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <img src="/ru/assets/pin-training.jpg" alt="Пример пина" class="hero-img">
+      <div class="hero-stat-badge">
+        <strong>7 глав</strong>
+        <span>от нуля до воронки</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- STORY -->
+<section class="story">
+  <div class="container">
+    <span class="section-label">О продукте</span>
+    <p>Вы слышали, что Pinterest приносит трафик без рекламы. Может, видели чьи-то результаты. Может, заходили и ничего не поняли - куча досок, какие-то пины, непонятные настройки.</p>
+    <p>Этот продукт - всё, что нужно знать на старте. Как устроена площадка, чем отличается от Instagram, как зарегистрироваться, как сделать первые пины, куда вписывать ключевые слова, как читать аналитику, сколько публиковать и когда ждать результаты.</p>
+    <p>К концу у вас будет работающая воронка: человек вводит запрос в Pinterest → находит ваш пин → кликает → попадает в ваш Telegram или на сайт → подписывается. Без рекламы, без видео, без ежедневного контента.</p>
+    <p>Каждый шаг со скриншотами и видео. Я показываю экран и делаю всё при вас. Вам останется повторить.</p>
+  </div>
+</section>
+
+<!-- CHAPTERS -->
+<section class="chapters">
+  <div class="container">
+    <span class="section-label">Программа</span>
+    <h2 class="section-title">7 глав - от нуля до первых переходов</h2>
+    <div class="chapter-list">
+      <div class="chapter open">
+        <button class="chapter-trigger" onclick="toggleAcc(this.parentElement)">
+          <span class="chapter-num">01</span>
+          <span class="chapter-name">Как устроен Pinterest</span>
+          <span class="chapter-icon">+</span>
+        </button>
+        <div class="chapter-body">Почему это поисковик, а не соцсеть. Чем отличается от Instagram и TikTok. Как алгоритм решает, кому показать ваш пин. Почему здесь не нужны подписчики, рилсы и ежедневный контент. Какие метрики имеют значение, а какие можно игнорировать.</div>
+      </div>
+      <div class="chapter">
+        <button class="chapter-trigger" onclick="toggleAcc(this.parentElement)">
+          <span class="chapter-num">02</span>
+          <span class="chapter-name">Аккаунт и доски</span>
+          <span class="chapter-icon">+</span>
+        </button>
+        <div class="chapter-body">Как зарегистрировать бизнес-аккаунт (или переключить личный). Что писать в имени, описании, куда ставить ссылку. Зачем нужны доски и почему это не папки, а сигнал алгоритму. Сколько досок создать на старте. Как их назвать (формула: название = запрос, который вводит ваш клиент). Как написать описание доски, чтобы алгоритм вас находил.</div>
+      </div>
+      <div class="chapter">
+        <button class="chapter-trigger" onclick="toggleAcc(this.parentElement)">
+          <span class="chapter-num">03</span>
+          <span class="chapter-name">Как делать пины</span>
+          <span class="chapter-icon">+</span>
+        </button>
+        <div class="chapter-body">Скелет пина: обложка, заголовок, описание, ссылка, доска, alt-текст (скрытое поле, которое читает алгоритм), похожие темы. Как сделать обложку в Canva за 3 минуты. Формулы заголовков на старте. Как писать описание - 220-230 символов с ключевыми словами. Куда ставить ссылку и почему она должна вести на конкретный пост, а не на главную. Карусели: короткие через веб-версию и длинные через связку с Instagram.</div>
+      </div>
+      <div class="chapter">
+        <button class="chapter-trigger" onclick="toggleAcc(this.parentElement)">
+          <span class="chapter-num">04</span>
+          <span class="chapter-name">Базовое SEO</span>
+          <span class="chapter-icon">+</span>
+        </button>
+        <div class="chapter-body">Что такое ключевые слова и зачем они в Pinterest. Как найти ключи за 10 минут: автоподсказки и цветные плашки (кнопки-уточнения под строкой поиска). Куда вписывать ключи - 4 места, которые читает алгоритм. Что такое alt-текст и зачем его заполнять.</div>
+      </div>
+      <div class="chapter">
+        <button class="chapter-trigger" onclick="toggleAcc(this.parentElement)">
+          <span class="chapter-num">05</span>
+          <span class="chapter-name">Ритм и рейтинг</span>
+          <span class="chapter-icon">+</span>
+        </button>
+        <div class="chapter-body">Сколько пинов публиковать в неделю. Как нарабатывается рейтинг аккаунта - почему первые месяцы тяжелее и когда алгоритм начинает доверять. Когда ждать первые результаты (честный ответ). Отложенный постинг - Pinterest позволяет планировать до 4 недель вперёд.</div>
+      </div>
+      <div class="chapter">
+        <button class="chapter-trigger" onclick="toggleAcc(this.parentElement)">
+          <span class="chapter-num">06</span>
+          <span class="chapter-name">Аналитика</span>
+          <span class="chapter-icon">+</span>
+        </button>
+        <div class="chapter-body">Где найти аналитику и как её открыть. Три цифры, на которые смотрим: сохранения, клики по ссылке, показы. Что значит каждая. Как понять, что пин работает, а что нет. Что делать с победителями и что делать с теми, кто набрал ноль.</div>
+      </div>
+      <div class="chapter">
+        <button class="chapter-trigger" onclick="toggleAcc(this.parentElement)">
+          <span class="chapter-num">07</span>
+          <span class="chapter-name">Воронка</span>
+          <span class="chapter-icon">+</span>
+        </button>
+        <div class="chapter-body">Куда вести людей из Pinterest: Telegram, сайт, магазин. Почему ссылка должна вести на конкретный пост, а не на канал целиком. Что человек должен увидеть, когда перейдёт по ссылке. Закреп-навигация в канале. Первая работающая воронка: пин → клик → пост → подписка.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT YOU GET -->
+<section>
+  <div class="container">
+    <span class="section-label">Комплект</span>
+    <h2 class="section-title">Что вы получите</h2>
+    <div class="get-grid">
+      <div class="get-item">
+        <div class="get-dot"></div>
+        <div class="get-text">Все 7 глав с текстом, скриншотами и видео</div>
+      </div>
+      <div class="get-item">
+        <div class="get-dot"></div>
+        <div class="get-text">Видео к каждой главе - запись экрана, показываю каждый шаг</div>
+      </div>
+      <div class="get-item">
+        <div class="get-dot"></div>
+        <div class="get-text">5 шаблонов пинов для Canva</div>
+      </div>
+      <div class="get-item">
+        <div class="get-dot"></div>
+        <div class="get-text">Шаблон 7 досок на старте</div>
+      </div>
+      <div class="get-item">
+        <div class="get-dot"></div>
+        <div class="get-text">10 заголовков-шаблонов (подставьте свою тему)</div>
+      </div>
+      <div class="get-item">
+        <div class="get-dot"></div>
+        <div class="get-text">Чек-лист к каждой главе</div>
+      </div>
+      <div class="get-item">
+        <div class="get-dot"></div>
+        <div class="get-text">Доступ бессрочный</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- UPSELL -->
+<div class="upsell">
+  <div class="upsell-inner">
+    <div class="upsell-text">
+      <span style="font-size:11px;font-weight:bold;letter-spacing:2px;text-transform:uppercase;color:var(--red);">Если захотите глубже</span>
+      <h2 style="font-family:var(--font-head);font-size:28px;text-transform:uppercase;margin-top:12px;">База знаний</h2>
+      <p>Стратегия заголовков, карта образов, конвейер пинов, продвинутая аналитика - всё это в «Базе знаний». Главы 8-12 и все материалы для стабильного роста.</p>
+    </div>
+    <div class="upsell-cta">
+      <a href="knowledge-base.html" class="btn-outline-white">Посмотреть «Базу знаний» →</a>
+    </div>
+  </div>
+</div>
+
+<!-- BUY PANEL -->
+<section class="buy-panel" id="buy">
+  <div class="buy-panel-inner">
+    <div>
+      <span style="font-size:11px;font-weight:bold;letter-spacing:2px;text-transform:uppercase;color:var(--red);display:block;margin-bottom:12px;">Быстрый старт</span>
+      <h2>Запустите Pinterest и получите первые переходы</h2>
+      <p style="margin-top:16px;">7 глав. От регистрации до работающей воронки. Каждый шаг с видео и скриншотами. Бессрочный доступ.</p>
+    </div>
+    <div class="buy-panel-right">
+      <div class="buy-price">1 200 ₽</div>
+      <div class="buy-price-label">бессрочный доступ</div>
+      <a href="#" class="btn-buy-lg">Купить на Zenclass</a>
+      <a href="index.html#pricing" class="buy-see-all">А можно мне всё посмотреть? →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <a href="index.html" class="footer-logo"><span>PIN</span>INSTINCT</a>
+    <nav class="footer-nav">
+      <a href="index.html#pricing">Все форматы</a>
+      <a href="index.html#blog">Блог</a>
+      <a href="index.html#about">Обо мне</a>
+    </nav>
+    <span class="footer-copy">© 2026 PinInstinct</span>
+  </div>
+</footer>
+
+<script>
+function toggleAcc(el) { el.classList.toggle('open'); }
+</script>
+</body>
+</html>

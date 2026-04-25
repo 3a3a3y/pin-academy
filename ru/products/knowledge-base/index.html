@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>База знаний Pinterest - PinInstinct</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --red: #C41E1E;
+    --black: #1A1A1A;
+    --bg: #FFFAF5;
+    --bg2: #F5F0EB;
+    --bg3: #EDE8E2;
+    --white: #ffffff;
+    --text-muted: #6B6560;
+    --font-head: "Arial Black", "Helvetica Neue", Arial, sans-serif;
+    --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --max: 1140px;
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--black); font-family: var(--font-body); font-size: 16px; line-height: 1.6; }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--bg); border-bottom: 1px solid var(--bg3);
+    padding: 0 24px;
+  }
+  .nav-inner {
+    max-width: var(--max); margin: 0 auto;
+    display: flex; align-items: center; gap: 24px; height: 64px;
+  }
+  .logo { font-family: var(--font-head); font-size: 20px; text-decoration: none; color: inherit; flex-shrink: 0; }
+  .logo span { color: var(--red); }
+  .nav-back { font-size: 13px; color: var(--text-muted); text-decoration: none; }
+  .nav-back:hover { color: var(--red); }
+  .nav-sep { color: var(--bg3); }
+  .nav-prices {
+    margin-left: auto; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  }
+  .nav-price-opt {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 13px;
+  }
+  .nav-price-opt span { color: var(--text-muted); }
+  .nav-price-opt strong { font-family: var(--font-head); font-size: 18px; color: var(--red); }
+  .btn-buy {
+    background: var(--red); color: var(--white);
+    padding: 9px 20px; font-size: 13px; font-weight: bold;
+    text-decoration: none; white-space: nowrap; transition: background 0.2s;
+  }
+  .btn-buy:hover { background: #a01818; }
+  .btn-buy-ghost {
+    border: 1.5px solid var(--black); color: var(--black);
+    padding: 8px 18px; font-size: 13px; font-weight: bold;
+    text-decoration: none; white-space: nowrap; transition: all 0.2s;
+  }
+  .btn-buy-ghost:hover { background: var(--black); color: var(--white); }
+
+  /* HERO */
+  .hero {
+    background: var(--black); color: var(--white);
+    padding: 0;
+    display: grid; grid-template-columns: 1fr 1fr;
+    min-height: 560px;
+  }
+  .hero-content {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 80px 64px 80px 24px;
+    max-width: 640px; margin-left: auto;
+  }
+  .hero-tag { font-size: 11px; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; color: var(--red); margin-bottom: 20px; display: block; }
+  .hero h1 {
+    font-family: var(--font-head); font-size: clamp(30px, 3.5vw, 50px);
+    text-transform: uppercase; line-height: 1.05; letter-spacing: -1px; margin-bottom: 24px;
+  }
+  .hero-sub { font-size: 17px; line-height: 1.7; color: #bbb; margin-bottom: 40px; }
+
+  .pricing-strip {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
+    margin-bottom: 32px;
+  }
+  .pricing-strip-item {
+    background: #222; padding: 20px 24px;
+  }
+  .pricing-strip-item.star { border-top: 2px solid var(--red); }
+  .psi-label { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #666; margin-bottom: 6px; }
+  .psi-label.star-label { color: var(--red); }
+  .psi-price { font-family: var(--font-head); font-size: 32px; color: var(--white); line-height: 1; }
+  .psi-note { font-size: 12px; color: #555; margin-top: 4px; }
+  .psi-note.star-note { color: #888; }
+
+  .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn-primary-lg {
+    display: inline-block; background: var(--red); color: var(--white);
+    padding: 14px 32px; font-size: 14px; font-weight: bold;
+    text-decoration: none; transition: background 0.2s;
+  }
+  .btn-primary-lg:hover { background: #a01818; }
+  .btn-secondary-lg {
+    display: inline-block; border: 1.5px solid rgba(255,255,255,0.25); color: rgba(255,255,255,0.75);
+    padding: 14px 32px; font-size: 14px; font-weight: bold;
+    text-decoration: none; transition: all 0.2s;
+  }
+  .btn-secondary-lg:hover { border-color: var(--white); color: var(--white); }
+
+  .hero-image { position: relative; overflow: hidden; background: #111; display: flex; align-items: center; justify-content: center; padding: 40px; }
+  .pins-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px;
+    width: 100%; max-width: 400px;
+  }
+  .pins-grid img { width: 100%; aspect-ratio: 2/3; object-fit: cover; display: block; }
+  .hero-image-overlay {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.85));
+    padding: 40px 32px 32px;
+  }
+  .hero-image-overlay p { font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.6; }
+
+  /* SECTIONS */
+  section { padding: 80px 24px; }
+  .container { max-width: var(--max); margin: 0 auto; }
+  .section-label { font-size: 11px; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; color: var(--red); margin-bottom: 16px; display: block; }
+  .section-title { font-family: var(--font-head); font-size: clamp(28px, 3.5vw, 44px); text-transform: uppercase; line-height: 1.05; letter-spacing: -0.5px; margin-bottom: 48px; }
+
+  /* STORY */
+  .story p { font-size: 17px; line-height: 1.85; color: #4A4540; margin-bottom: 20px; max-width: 720px; }
+  .story p strong { color: var(--black); }
+
+  /* INCLUDES BANNER */
+  .includes-banner {
+    background: var(--red); color: var(--white); padding: 32px 24px; margin: 0;
+  }
+  .includes-banner-inner { max-width: var(--max); margin: 0 auto; display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+  .includes-banner h3 { font-family: var(--font-head); font-size: 16px; text-transform: uppercase; flex-shrink: 0; }
+  .includes-banner p { font-size: 14px; opacity: 0.85; flex: 1; min-width: 200px; }
+  .includes-banner a { color: var(--white); font-size: 13px; font-weight: bold; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.4); white-space: nowrap; }
+
+  /* CHAPTERS */
+  .chapters { background: var(--bg2); }
+  .base-chapters { margin-bottom: 48px; }
+  .advanced-label {
+    display: flex; align-items: center; gap: 16px; margin: 32px 0 16px;
+    font-size: 11px; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted);
+  }
+  .advanced-label::after { content: ''; flex: 1; height: 1px; background: var(--bg3); }
+  .chapter-list { display: flex; flex-direction: column; gap: 2px; }
+  .chapter { border-bottom: 1px solid var(--bg3); }
+  .chapter-trigger {
+    display: flex; align-items: center; gap: 20px;
+    padding: 20px 0; cursor: pointer;
+    background: none; border: none; width: 100%; text-align: left;
+  }
+  .chapter-trigger:hover .chapter-name { color: var(--red); }
+  .chapter-num { font-family: var(--font-head); font-size: 13px; color: var(--red); width: 48px; flex-shrink: 0; }
+  .chapter-name { font-size: 15px; font-weight: bold; flex: 1; }
+  .chapter-badge { font-size: 11px; background: var(--red); color: var(--white); padding: 3px 8px; letter-spacing: 0.5px; flex-shrink: 0; }
+  .chapter-icon { font-size: 16px; color: var(--text-muted); transition: transform 0.3s; flex-shrink: 0; }
+  .chapter.open .chapter-icon { transform: rotate(45deg); }
+  .chapter-body { display: none; padding: 0 0 24px 68px; font-size: 14px; line-height: 1.8; color: #4A4540; }
+  .chapter.open .chapter-body { display: block; }
+  .chapter-muted .chapter-num { color: #bbb; }
+  .chapter-muted .chapter-name { color: var(--text-muted); }
+  .chapter-muted { opacity: 0.6; }
+
+  /* MATERIALS */
+  .materials-section { background: var(--black); color: var(--white); }
+  .materials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 0; }
+  .material-item { background: #1a1a1a; padding: 28px 24px; display: flex; gap: 14px; align-items: flex-start; }
+  .material-dot { width: 6px; height: 6px; background: var(--red); border-radius: 50%; flex-shrink: 0; margin-top: 8px; }
+  .material-text { font-size: 14px; line-height: 1.5; color: #ccc; }
+
+  /* COMPARISON */
+  .comparison { background: var(--bg); }
+  .comparison-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 0; }
+  .comp-card {
+    padding: 40px 36px; display: flex; flex-direction: column; gap: 20px;
+    background: var(--bg2);
+  }
+  .comp-card.featured { background: var(--black); color: var(--white); }
+  .comp-tag { font-size: 11px; font-weight: bold; letter-spacing: 1.5px; text-transform: uppercase; color: var(--red); }
+  .comp-card h3 { font-family: var(--font-head); font-size: 22px; text-transform: uppercase; }
+  .comp-price { font-family: var(--font-head); font-size: 48px; color: var(--red); line-height: 1; }
+  .comp-access { font-size: 13px; color: var(--text-muted); }
+  .comp-card.featured .comp-access { color: #888; }
+  .comp-desc { font-size: 15px; line-height: 1.7; color: #4A4540; flex: 1; }
+  .comp-card.featured .comp-desc { color: #bbb; }
+  .comp-btn {
+    display: block; text-align: center; padding: 14px 24px; font-size: 14px; font-weight: bold;
+    text-decoration: none; margin-top: auto; transition: all 0.2s;
+  }
+  .comp-btn.outline { border: 1.5px solid var(--black); color: var(--black); }
+  .comp-btn.outline:hover { background: var(--black); color: var(--white); }
+  .comp-btn.solid { background: var(--red); color: var(--white); }
+  .comp-btn.solid:hover { background: #a01818; }
+  .comp-footer { font-size: 13px; text-align: center; color: var(--text-muted); margin-top: 24px; }
+  .comp-footer a { color: var(--red); text-decoration: none; }
+
+  /* FOOTER */
+  footer { background: var(--black); color: var(--white); padding: 48px 24px; }
+  .footer-inner { max-width: var(--max); margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+  .footer-logo { font-family: var(--font-head); font-size: 18px; text-decoration: none; color: var(--white); }
+  .footer-logo span { color: var(--red); }
+  .footer-nav { display: flex; gap: 24px; }
+  .footer-nav a { font-size: 13px; color: #999; text-decoration: none; }
+  .footer-nav a:hover { color: var(--white); }
+  .footer-copy { font-size: 12px; color: #444; }
+
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-image { display: none; }
+    .hero-content { padding: 60px 24px; max-width: 100%; margin: 0; }
+    .pricing-strip { grid-template-columns: 1fr 1fr; }
+    .comparison-grid { grid-template-columns: 1fr; }
+    .materials-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 600px) {
+    section { padding: 56px 16px; }
+    .pricing-strip { grid-template-columns: 1fr; }
+    .materials-grid { grid-template-columns: 1fr; }
+    .nav-prices { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><span>PIN</span>INSTINCT</a>
+    <span class="nav-sep">·</span>
+    <a href="index.html#pricing" class="nav-back">← Все форматы</a>
+    <div class="nav-prices">
+      <div class="nav-price-opt">
+        <span>Самостоятельно</span>
+        <strong>3 500 ₽</strong>
+        <a href="#buy" class="btn-buy-ghost">Купить</a>
+      </div>
+      <div class="nav-price-opt">
+        <span>С обратной связью ⭐</span>
+        <strong>5 500 ₽</strong>
+        <a href="#buy" class="btn-buy">Купить</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-content">
+    <span class="hero-tag">12 глав · Полная система</span>
+    <h1>База знаний для уверенной работы в Pinterest</h1>
+    <p class="hero-sub">Полная система продвижения. От ключевых слов до конвейера пинов - без рывков и выгорания.</p>
+    <div class="pricing-strip">
+      <div class="pricing-strip-item">
+        <div class="psi-label">Самостоятельно</div>
+        <div class="psi-price">3 500 ₽</div>
+        <div class="psi-note">доступ 2 месяца</div>
+      </div>
+      <div class="pricing-strip-item star">
+        <div class="psi-label star-label">С обратной связью ⭐</div>
+        <div class="psi-price">5 500 ₽</div>
+        <div class="psi-note star-note">бессрочный доступ</div>
+      </div>
+    </div>
+    <div class="hero-ctas">
+      <a href="#buy" class="btn-primary-lg">С обратной связью - 5 500 ₽</a>
+      <a href="#buy" class="btn-secondary-lg">Самостоятельно - 3 500 ₽</a>
+    </div>
+  </div>
+  <div class="hero-image">
+    <div class="pins-grid">
+      <img src="/ru/assets/pin-faith.jpg" alt="Пин">
+      <img src="/ru/assets/pin-pinterest2026.jpg" alt="Пин">
+      <img src="/ru/assets/pin-training.jpg" alt="Пин">
+      <img src="/ru/assets/pin-carusel.jpg" alt="Пин">
+    </div>
+    <div class="hero-image-overlay">
+      <p>Включает все 7 глав «Быстрого старта» плюс 5 продвинутых модулей. Всё, что нужно для стабильного трафика.</p>
+    </div>
+  </div>
+</div>
+
+<!-- STORY -->
+<section class="story">
+  <div class="container">
+    <span class="section-label">О продукте</span>
+    <p>Вы уже знаете основы. Аккаунт есть, пины публикуете, воронка работает. Но чувствуете: можно больше. Можно точнее подбирать ключи. Можно писать заголовки, на которые кликают. Можно делать контент, который сохраняют сотнями. Можно из одного поста делать десять пинов вместо одного.</p>
+    <p>Эта программа - про систему, которая приносит трафик <strong>стабильно</strong>. Без рывков, без выгорания, без «о боже, что бы сегодня запинить».</p>
+    <p>Вы научитесь собирать ключевые слова за 10 минут. Писать заголовки, которые останавливают. Делать контент, в котором люди узнают себя. Превращать один пост в 10 пинов. Читать аналитику за 15 минут и понимать, что масштабировать, а что не трогать.</p>
+  </div>
+</section>
+
+<!-- INCLUDES BANNER -->
+<div class="includes-banner">
+  <div class="includes-banner-inner">
+    <h3>Включает «Быстрый старт»</h3>
+    <p>Все 7 глав базовой программы уже внутри. Если вы новичок - начнёте с нуля. Если уже знаете основы - пройдёте быстро и перейдёте к продвинутым модулям.</p>
+    <a href="quick-start.html">Что такое «Быстрый старт»?</a>
+  </div>
+</div>
+
+<!-- CHAPTERS -->
+<section class="chapters">
+  <div class="container">
+    <span class="section-label">Программа</span>
+    <h2 class="section-title">12 глав - полная система</h2>
+
+    <div class="base-chapters">
+      <div class="advanced-label">Главы 1-7 · Быстрый старт (включены)</div>
+      <div class="chapter-list">
+        <div class="chapter chapter-muted">
+          <button class="chapter-trigger" onclick="toggleAcc(this.parentElement)">
+            <span class="chapter-num">01</span>
+            <span class="chapter-name">Как устроен Pinterest</span>
+            <span class="chapter-icon">+</span>
+          </button>
+          <div class="chapter-body">Почему это поисковик, а не соцсеть. Как алгоритм решает, кому показать ваш пин. Какие метрики имеют значение.</div>
+        </div>
+        <div class="chapter chapter-muted">
+          <button class="chapter-trigger" onclick="toggleAcc(this.parentElement)">
+            <span class="chapter-num">02</span>
+            <span class="chapter-name">Аккаунт и доски</span>
+            <span class="chapter-icon">+</span>
+          </button>
+          <div class="chapter-body">Регистрация, оформление, доски как сигнал алгоритму.</div>
+        </div>
+        <div class="chapter chapter-muted">
+          <button class="chapter-trigger" onclick="toggleAcc(this.parentElement)">
+            <span class="chapter-num">03–07</span>
+            <span class="chapter-name">Пины, SEO, ритм, аналитика, воронка</span>
+            <span class="chapter-icon">+</span>
+          </button>
+          <div class="chapter-body">Как делать пины, базовое SEO, ритм публикаций, аналитика, первая воронка пин → клик → подписка.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="advanced-label">Главы 8-12 · Продвинутые модули</div>
+    <div class="chapter-list">
+      <div class="chapter open">
+        <button class="chapter-trigger" onclick="toggleAcc(this.parentElement)">
+          <span class="chapter-num">08</span>
+          <span class="chapter-name">Ключевые слова: глубоко</span>
+          <span class="chapter-badge">Только здесь</span>
+          <span class="chapter-icon">+</span>
+        </button>
+        <div class="chapter-body">Как люди ищут: 4 типа намерений (хочу идею, хочу инструкцию, хочу выбрать, хочу понять что не так). Высокочастотные и низкочастотные запросы - какие выбирать на старте и почему. SortPin - расширение для браузера, которое показывает статистику чужих пинов: как пользоваться, что искать. Кластеры: как разложить одну тему на 5-7 подтем и получить контент на месяц. Доски как SEO - почему доска «Разное» = потерянный трафик.</div>
+      </div>
+      <div class="chapter">
+        <button class="chapter-trigger" onclick="toggleAcc(this.parentElement)">
+          <span class="chapter-num">09</span>
+          <span class="chapter-name">Заголовки</span>
+          <span class="chapter-badge">Только здесь</span>
+          <span class="chapter-icon">+</span>
+        </button>
+        <div class="chapter-body">4 техники заголовков, которые работают в Pinterest. Матрица «10 заголовков за 7 минут». Банк формул - 30 штук, презентация с примерами. Промт для AI: как сгенерировать 50 заголовков за минуту и выбрать лучшие. Как тестировать заголовки и выбирать победителя по данным, а не по ощущениям. Мой конвейер: пост + промт + автоподсказки = 50 заголовков за вечер.</div>
+      </div>
+      <div class="chapter">
+        <button class="chapter-trigger" onclick="toggleAcc(this.parentElement)">
+          <span class="chapter-num">10</span>
+          <span class="chapter-name">Контент, который сохраняют</span>
+          <span class="chapter-badge">Только здесь</span>
+          <span class="chapter-icon">+</span>
+        </button>
+        <div class="chapter-body">Почему одни пины сохраняют сотнями, а другие нет. 5 форматов, которые работают (чек-лист, ошибки, мини-гайд, подборка, сравнение). Приём «одна сцена» - как добавить в любой пин момент из жизни, чтобы человек узнал себя. Карта образов: как планировать контент так, чтобы людям не надоедало. Примеры для 6 ниш.</div>
+      </div>
+      <div class="chapter">
+        <button class="chapter-trigger" onclick="toggleAcc(this.parentElement)">
+          <span class="chapter-num">11</span>
+          <span class="chapter-name">Конвейер пинов</span>
+          <span class="chapter-badge">Только здесь</span>
+          <span class="chapter-icon">+</span>
+        </button>
+        <div class="chapter-body">Как из одного поста делать 10+ пинов. 7 углов для одной темы. Что Pinterest считает свежим пином (fresh pin - новая картинка + другой заголовок на ту же ссылку, алгоритм считает это новым контентом). Батчинг: как делать 15-20 пинов за час в Canva. Ритм без выгорания.</div>
+      </div>
+      <div class="chapter">
+        <button class="chapter-trigger" onclick="toggleAcc(this.parentElement)">
+          <span class="chapter-num">12</span>
+          <span class="chapter-name">Продвинутая аналитика и воронка</span>
+          <span class="chapter-badge">Только здесь</span>
+          <span class="chapter-icon">+</span>
+        </button>
+        <div class="chapter-body">3 вопроса раз в неделю - вся аналитика за 15 минут. Как масштабировать победителей. Pinterest → Telegram: как не потерять человека по дороге. Закреп-навигация, мини-воронка, CTA без давления.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MATERIALS -->
+<section class="materials-section">
+  <div class="container">
+    <span class="section-label">Комплект материалов</span>
+    <h2 class="section-title" style="color:var(--white);">Всё, что внутри</h2>
+    <div class="materials-grid">
+      <div class="material-item">
+        <div class="material-dot"></div>
+        <div class="material-text">Все 12 глав с текстом, скриншотами и видео</div>
+      </div>
+      <div class="material-item">
+        <div class="material-dot"></div>
+        <div class="material-text">Банк заголовков - 30 формул, презентация с примерами</div>
+      </div>
+      <div class="material-item">
+        <div class="material-dot"></div>
+        <div class="material-text">Карта образов с примерами для 6 ниш</div>
+      </div>
+      <div class="material-item">
+        <div class="material-dot"></div>
+        <div class="material-text">Шпаргалка «5 форматов, которые сохраняют»</div>
+      </div>
+      <div class="material-item">
+        <div class="material-dot"></div>
+        <div class="material-text">Шпаргалка «7 углов для одной темы»</div>
+      </div>
+      <div class="material-item">
+        <div class="material-dot"></div>
+        <div class="material-text">Шпаргалка «3 вопроса аналитики»</div>
+      </div>
+      <div class="material-item">
+        <div class="material-dot"></div>
+        <div class="material-text">Таблица ключевых слов - шаблон</div>
+      </div>
+      <div class="material-item">
+        <div class="material-dot"></div>
+        <div class="material-text">5 шаблонов пинов для Canva</div>
+      </div>
+      <div class="material-item">
+        <div class="material-dot"></div>
+        <div class="material-text">Промт для генерации заголовков</div>
+      </div>
+      <div class="material-item">
+        <div class="material-dot"></div>
+        <div class="material-text">Чек-лист к каждой главе</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON -->
+<section class="comparison" id="buy">
+  <div class="container">
+    <span class="section-label">Выберите формат</span>
+    <h2 class="section-title">Разница между форматами</h2>
+    <div class="comparison-grid">
+      <div class="comp-card">
+        <div class="comp-tag">Полный курс</div>
+        <h3>Самостоятельно</h3>
+        <div class="comp-price">3 500 ₽</div>
+        <div class="comp-access">доступ 2 месяца</div>
+        <p class="comp-desc">Если вы дисциплинированы и умеете учиться сами - хватит. Все материалы, доступ 2 месяца, работаете в своём ритме. Никто не будет торопить и никто не будет поправлять.</p>
+        <a href="#" class="comp-btn outline">Купить на Zenclass</a>
+      </div>
+      <div class="comp-card featured">
+        <div class="comp-tag">Популярный ⭐</div>
+        <h3>С обратной связью</h3>
+        <div class="comp-price">5 500 ₽</div>
+        <div class="comp-access">бессрочный доступ</div>
+        <p class="comp-desc">Если вам нужен кто-то, кто скажет «вот тут поменяй, а вот тут уже работает» - берите этот. Бессрочный доступ + индивидуальная обратная связь: вы показываете свой пин, я говорю что поменять. Вы не понимаете почему нет показов - разбираемся вместе. Вы не уверены в заголовке - присылаете, получаете разбор.</p>
+        <a href="#" class="comp-btn solid">Купить на Zenclass</a>
+      </div>
+    </div>
+    <p class="comp-footer">Посмотреть все форматы: <a href="index.html#pricing">все тарифы PinInstinct →</a></p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <a href="index.html" class="footer-logo"><span>PIN</span>INSTINCT</a>
+    <nav class="footer-nav">
+      <a href="index.html#pricing">Все форматы</a>
+      <a href="index.html#blog">Блог</a>
+      <a href="index.html#about">Обо мне</a>
+    </nav>
+    <span class="footer-copy">© 2026 PinInstinct</span>
+  </div>
+</footer>
+
+<script>
+function toggleAcc(el) { el.classList.toggle('open'); }
+</script>
+</body>
+</html>
