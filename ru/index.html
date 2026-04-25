@@ -108,12 +108,12 @@
 
   .hero-image {
     position: relative; overflow: hidden;
+    max-height: 500px;
   }
   .hero-image img {
     width: 100%; height: 100%;
-    object-fit: cover; object-position: center top;
+    object-fit: cover; object-position: center 20%;
     display: block;
-    filter: grayscale(20%);
   }
   .hero-image-overlay {
     position: absolute; bottom: 40px; left: 40px;
@@ -540,7 +540,23 @@
   @media (max-width: 600px) {
     section { padding: 64px 16px; }
     .nav-inner { padding: 0; }
-    .pricing-grid { grid-template-columns: 1fr; }
+    .pricing-grid { 
+      grid-template-columns: 1fr; 
+      display: flex; 
+      overflow-x: auto; 
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      gap: 12px;
+      padding-bottom: 16px;
+    }
+    .pricing-grid .price-card {
+      min-width: 280px;
+      max-width: 320px;
+      flex-shrink: 0;
+      scroll-snap-align: start;
+    }
+    .pricing-extra { grid-template-columns: 1fr; }
+    .price-card-wide { grid-column: span 1; }
     .footer-inner { grid-template-columns: 1fr; }
     .hero-content { padding: 48px 16px; }
     .nav-links { display: none; }
@@ -701,6 +717,14 @@
         <img src="/ru/assets/photo-output-193.jpg" alt="Скриншот аналитики Pinterest">
       </div>
     </div>
+  </div>
+</section>
+
+<!-- BRIDGE: переход от доказательств к программе -->
+<section style="padding:48px 24px;text-align:center;background:var(--bg2,#F5F0EB);">
+  <div style="max-width:680px;margin:0 auto;">
+    <p style="font-size:18px;line-height:1.6;color:var(--text,#1A1A1A);margin-bottom:16px;">Все эти результаты получены одной системой. Ниже - что в ней и как она устроена.</p>
+    <p style="font-size:14px;color:var(--text-muted,#6B6560);">Два уровня: «Быстрый старт» (7 глав, запустить воронку) и «База знаний» (12 глав, полная система).</p>
   </div>
 </section>
 
@@ -901,7 +925,7 @@
         </ul>
         <p class="price-desc">Для тех, кто хочет понять как это работает и запустить первую воронку</p>
         <a href="#" class="btn-primary-block">Купить</a>
-        <a href="quick-start.html" class="btn-secondary-red">Подробнее →</a>
+        <a href="/ru/products/quick-start/" class="btn-secondary-red">Подробнее →</a>
       </div>
 
       <div class="price-card">
@@ -918,7 +942,7 @@
         </ul>
         <p class="price-desc">Для тех, кто хочет полную систему и умеет учиться сам</p>
         <a href="#" class="btn-primary-block">Купить</a>
-        <a href="knowledge-base.html" class="btn-secondary-red">Подробнее →</a>
+        <a href="/ru/products/knowledge-base/" class="btn-secondary-red">Подробнее →</a>
       </div>
 
       <div class="price-card featured">
@@ -935,7 +959,7 @@
         </ul>
         <p class="price-desc">Для тех, кому нужен кто-то, кто скажет «вот тут поменяй, а вот тут уже работает»</p>
         <a href="#" class="btn-primary-block">Купить</a>
-        <a href="knowledge-base.html" class="btn-ghost">Подробнее →</a>
+        <a href="/ru/products/knowledge-base/" class="btn-ghost">Подробнее →</a>
       </div>
 
       <div class="price-card">
