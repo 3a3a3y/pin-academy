@@ -3,7 +3,25 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>PinInstinct - Pinterest-маркетинг, который приводит клиентов</title>
+<title>PinInstinct - стабильный поток клиентов из Pinterest за 90 дней</title>
+<meta name="description" content="Курс по Pinterest для экспертов и микробрендов. Без рилсов, без рекламы, без ежедневного контента. 5 кейсов учеников с реальными цифрами.">
+<meta name="theme-color" content="#1A1A1A">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pin-academy.ru/ru/">
+<meta property="og:title" content="PinInstinct - Pinterest-маркетинг, который приводит клиентов">
+<meta property="og:description" content="Курс по Pinterest для экспертов и микробрендов. Без рилсов, без рекламы, без ежедневного контента. 5 кейсов учеников с реальными цифрами.">
+<meta property="og:image" content="https://pin-academy.ru/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="PinInstinct">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="PinInstinct - Pinterest-маркетинг, который приводит клиентов">
+<meta name="twitter:description" content="Курс по Pinterest для экспертов и микробрендов. Без рилсов, без рекламы, без ежедневного контента. 5 кейсов учеников с реальными цифрами.">
+<meta name="twitter:image" content="https://pin-academy.ru/og-image.jpg">
+
 <style>
   :root {
     --red: #C41E1E;
@@ -157,6 +175,29 @@
   .proof h2{color:var(--cream);}
   .proof .section-head .sub{color:rgba(255,250,245,0.7);}
   .proof .eyebrow{color:#ff5b5b;}.proof .eyebrow::before{background:#ff5b5b;}
+
+  /* ===== MYTHS ===== */
+  .myths{background:var(--cream);}
+  .myths-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
+  .myth-item{display:flex;gap:16px;align-items:flex-start;padding:20px;background:#fff;border:1px solid var(--line);}
+  .myth-no{
+    flex:none;width:32px;height:32px;border-radius:50%;
+    background:var(--red);color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    font-size:22px;font-weight:700;line-height:1;
+  }
+  .myth-item strong{display:block;font-size:16px;font-weight:700;margin-bottom:6px;color:var(--ink);}
+  .myth-item p{font-size:14px;color:var(--ink-2,#3a3a3a);line-height:1.5;margin:0;}
+  @media(max-width:640px){.myths-grid{grid-template-columns:1fr;gap:14px;}.myth-item{padding:16px;}}
+
+  /* ===== PROOF MANIFEST ===== */
+  .proof-manifest{background:var(--red);color:#fff;}
+  .proof-manifest .tag{color:rgba(255,255,255,0.8);}
+  .kpi-quote{font-size:32px;font-weight:800;line-height:1.1;letter-spacing:-0.02em;color:#fff;margin:16px 0 24px;}
+  .kpi-quote em{font-style:italic;font-weight:800;}
+  .proof-quotes{display:flex;flex-direction:column;gap:10px;margin-top:auto;}
+  .proof-quote{font-size:14px;color:rgba(255,255,255,0.92);line-height:1.5;padding-left:0;font-weight:500;}
+  @media(max-width:640px){.kpi-quote{font-size:26px;}}
   .proof-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:16px;}
   .proof-card{background:#0f0f0f;border:1px solid rgba(255,255,255,0.08);padding:28px;display:flex;flex-direction:column;gap:20px;min-height:320px;position:relative;overflow:hidden;}
   .proof-card .tag{font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.5);}
@@ -339,6 +380,22 @@
   .case-results span{font-size:13px;color:var(--ink-2,#3a3a3a);display:flex;align-items:baseline;gap:6px;}
   .case-results span::before{content:"→";color:var(--red);font-weight:700;flex:none;}
 
+  .case-screenshot{
+    margin:4px 0;
+    border:1px solid var(--line);
+    background:#f8f8f8;
+    overflow:hidden;
+    border-radius:4px;
+  }
+  .case-screenshot img{
+    width:100%;
+    height:auto;
+    display:block;
+    max-height:280px;
+    object-fit:cover;
+    object-position:center top;
+  }
+
   .tg-reviews{margin-top:16px;}
   .tg-reviews-title{font-size:18px;font-weight:700;letter-spacing:-0.01em;margin-bottom:24px;color:var(--muted);}
   .tg-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
@@ -352,7 +409,13 @@
   }
   .tg-time{font-size:12px;color:var(--muted);text-align:right;margin-top:4px;}
   @media(max-width:960px){.cases-grid{grid-template-columns:repeat(2,1fr);}.cases-row2{grid-template-columns:1fr;max-width:none;}}
-  @media(max-width:640px){.cases-grid{grid-template-columns:1fr;}.tg-grid{grid-template-columns:1fr;}}
+  @media(max-width:640px){
+    .cases-grid{grid-template-columns:1fr;}
+    .tg-grid{grid-template-columns:1fr;}
+    .case-ab{grid-template-columns:1fr;gap:0;}
+    .case-arrow{transform:rotate(90deg);padding:6px 0;}
+    .case-a, .case-b{padding:16px 18px;}
+  }
 
   /* ===== ABOUT ===== */
   .about{background:var(--sand);}
@@ -465,28 +528,28 @@
     <div>
       <div class="hero-tag"><span class="dot"></span> Второй поток · старт в мае 2026</div>
       <h1>
-        Pinterest-маркетинг, который приводит <span class="mark"><span>клиентов</span></span>.
+        Стабильный поток клиентов из Pinterest <span class="mark"><span>за 90 дней</span></span>.
         Без рилсов, без рекламы, без ежедневного контента.
       </h1>
       <p class="lead">
-        Курс-система для экспертов, коучей и микробрендов. 7 уроков - от нуля до стабильного потока трафика из Pinterest в Telegram, на сайт или в магазин.
+        Курс-система для экспертов, коучей и микробрендов. От оформления аккаунта до работающей воронки Pinterest → Telegram. 12 глав, шаблоны, банк заголовков и индивидуальные разборы.
       </p>
       <a href="#pricing" class="cta">Выбрать формат участия <span class="arrow">→</span></a>
-      <div class="cta-note">Формат на выбор: записи, группа с сопровождением или личная работа.</div>
+      <div class="cta-note">Формат на выбор: самостоятельно, с обратной связью или в группе.</div>
     </div>
     <div class="hero-visual">
       <div class="pin">
         <div class="pin-meta-top">
-          <span>Pinterest · аналитика</span>
-          <span>25/100</span>
+          <span>Манифест</span>
+          <span>PinInstinct</span>
         </div>
         <div class="pin-title">
-          Каждый<br>
-          <span class="k">пин - это</span><br>
-          тренировка
+          Один<br>
+          <span class="k">удачный пин</span><br>
+          приводит трафик годами
         </div>
         <div class="pin-meta-bot">
-          Как мышцы - твой контент растёт, когда ты работаешь над ним системно.
+          Pinterest - не лента. Это поисковик. Здесь не нужно кричать каждый день, чтобы вас услышали.
         </div>
       </div>
     </div>
@@ -576,17 +639,71 @@
           <path d="M0 80 L20 72 L40 68 L60 56 L80 58 L100 42 L120 36 L140 30 L160 22 L180 18 L200 8" fill="none" stroke="#C41E1E" stroke-width="2"/>
         </svg>
       </div>
-      <div class="proof-card">
-        <div><div class="tag">Топ-пины</div><div class="kpi">Сохранения</div><div class="desc">Лучшие пины по кликам и сохранениям за последние 90 дней.</div></div>
-        <div class="proof-pins">
-          <div class="proof-pin"><img loading="lazy" decoding="async" src="/ru/assets/pin-training.jpg" alt="" loading="lazy"></div>
-          <div class="proof-pin"><img loading="lazy" decoding="async" src="/ru/assets/pin-carusel.jpg" alt="" loading="lazy"></div>
-          <div class="proof-pin"><img loading="lazy" decoding="async" src="/ru/assets/pin-pinterest2026.jpg" alt="" loading="lazy"></div>
-          <div class="proof-pin"><img loading="lazy" decoding="async" src="/ru/assets/pin-faith.jpg" alt="" loading="lazy"></div>
+      <div class="proof-card proof-manifest">
+        <div><div class="tag">Принцип</div><div class="kpi-quote">«Один пин<br>работает <em>годами</em>»</div></div>
+        <div class="proof-quotes">
+          <div class="proof-quote">→ Pinterest - не лента, а поисковик</div>
+          <div class="proof-quote">→ 60% сохранений идут на пины старше года</div>
+          <div class="proof-quote">→ Контент не сгорает за 24 часа</div>
         </div>
       </div>
     </div>
     <p class="proof-caption">Это аккаунт, который я веду сама. Не клиентский, не раскрученный - мой. Все результаты получены теми же методами, которые я даю в курсе.</p>
+  </div>
+</section>
+
+<!-- ANTI-MYTHS -->
+<section class="myths">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Развенчиваем мифы</span>
+      <h2>Что вам НЕ нужно делать в Pinterest</h2>
+      <p class="sub">В сети много устаревших советов. Половина из них уже не работает, а вторая половина просто отнимает время. Вот что точно не нужно:</p>
+    </div>
+    <div class="myths-grid">
+      <div class="myth-item">
+        <span class="myth-no">×</span>
+        <div>
+          <strong>Постить 20+ пинов в день</strong>
+          <p>Алгоритм давно не любит спам. 3-5 качественных пинов работают лучше, чем 50 однотипных.</p>
+        </div>
+      </div>
+      <div class="myth-item">
+        <span class="myth-no">×</span>
+        <div>
+          <strong>Делать idea pins (видео-карусели)</strong>
+          <p>89% вирусных пинов 2025 года - обычная статика. Камера не нужна.</p>
+        </div>
+      </div>
+      <div class="myth-item">
+        <span class="myth-no">×</span>
+        <div>
+          <strong>Использовать групповые доски</strong>
+          <p>Когда-то работали, сейчас - мёртвые. Pinterest их фактически отключил.</p>
+        </div>
+      </div>
+      <div class="myth-item">
+        <span class="myth-no">×</span>
+        <div>
+          <strong>Платить за дорогие сервисы</strong>
+          <p>Tailwind, премиум SortPin - не нужны. Всё нужное есть в самом Pinterest бесплатно.</p>
+        </div>
+      </div>
+      <div class="myth-item">
+        <span class="myth-no">×</span>
+        <div>
+          <strong>Репостить чужие пины каждый день</strong>
+          <p>Это совет 2018 года. Сегодня алгоритм любит ваш собственный свежий контент.</p>
+        </div>
+      </div>
+      <div class="myth-item">
+        <span class="myth-no">×</span>
+        <div>
+          <strong>Появляться в кадре, как в Instagram</strong>
+          <p>Pinterest - визуальный поиск, не соцсеть. Личность не обязательна.</p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -841,26 +958,32 @@ const cases=[
   {name:"Влада",handle:"@vladafrance",initials:"В",niche:"Дизайнер · начала почти с нуля",
    ctx:"Пришла продвигать Telegram-канал и освоить Pinterest-менеджмент.",
    a:"54к показов · 93 перехода",b:"1,4 млн показов · 3 000 переходов",
+   screenshot:"/ru/assets/case-vlada-analytics.jpg",
    results:["+4 000 подписчиков","400к+ экономии на рекламе","2 клиента на Pinterest-ведение"]},
   {name:"Полина",handle:"@chtecc",initials:"П",niche:"Эзотерик, чтец таро",
    ctx:"Пришла как «последнюю попытку» в блогинге.",
    a:"14к показов · 32 перехода",b:"7,5 млн показов · 22 000 переходов",
+   screenshot:"/ru/assets/case-polina-analytics.jpg",
    results:["+3 700 подписчиков","300к+ экономии на рекламе","283к переходов с блога"]},
   {name:"Анастасия",handle:"@anastasia_konopleva",initials:"А",niche:"Pinterest-менеджер",
    ctx:"Усилить результат в блоге клиента. Контент дублировался.",
    a:"47к показов · 56 переходов",b:"2,5 млн показов · 2 200 переходов",
+   screenshot:"/ru/assets/case-anastasia-analytics.jpg",
    results:["+2 200 человек в воронку","Рост конверсии в переход в 39 раз"]},
   {name:"Евгения",handle:"@e_aristova_web",initials:"Е",niche:"Pinterest-менеджер",
    ctx:"У клиента много просмотров, но переходов мало. Создали новый аккаунт.",
    a:"1,5 млн просмотров · 260 переходов (4 мес.)",b:"144к просмотров · 1 100 переходов (1 мес.)",
+   screenshot:"/ru/assets/case-evgenia-analytics.jpg",
    results:["+1 100 человек в воронку","Рост конверсии ×4,2"]},
   {name:"Ирина",handle:"@irinakhachatryan",initials:"И",niche:"Дизайнер сайтов",
    ctx:"Выкладывала пины, но не было заявок и подписок.",
    a:"113к показов · 49 переходов",b:"558к показов · 620+ переходов в воронку",
+   screenshot:"/ru/assets/case-irina-analytics.jpg",
    results:["+800 подписчиков","100к+ экономии на рекламе","Заявки на сайт из Pinterest"]},
 ];
 
 function makeCase(c){
+  const screenshotHtml = c.screenshot ? `<div class="case-screenshot"><img loading="lazy" src="${c.screenshot}" alt="Скриншот аналитики Pinterest - ${c.name}"></div>` : '';
   return `<div class="case-card">
     <div class="case-head">
       <div class="case-avatar">${c.initials}</div>
@@ -875,6 +998,7 @@ function makeCase(c){
       <div class="case-arrow">→</div>
       <div class="case-b"><div class="case-label">Точка Б</div><div class="case-num">${c.b}</div></div>
     </div>
+    ${screenshotHtml}
     <div class="case-results">${c.results.map(r=>`<span>${r}</span>`).join('')}</div>
   </div>`;
 }
