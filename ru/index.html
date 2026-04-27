@@ -961,10 +961,6 @@ try {
 
 // ===== CASES =====
 const cases=[
-  {name:"Влада",handle:"@vladafrance",initials:"В",niche:"Дизайнер · начала почти с нуля",
-   ctx:"Пришла продвигать Telegram-канал и освоить Pinterest-менеджмент.",
-   a:"54к показов · 93 перехода",b:"1,4 млн показов · 3 000 переходов",
-   results:["+4 000 подписчиков","400к+ экономии на рекламе","2 клиента на Pinterest-ведение"]},
   {name:"Полина",handle:"@chtecc",initials:"П",niche:"Эзотерик, чтец таро",
    ctx:"Пришла как «последнюю попытку» в блогинге.",
    a:"14к показов · 32 перехода",b:"7,5 млн показов · 22 000 переходов",
@@ -1011,8 +1007,8 @@ function makeCase(c){
 try {
 const cr1 = document.getElementById('casesRow1');
 const cr2 = document.getElementById('casesRow2');
-if(cr1) cr1.innerHTML = cases.slice(0,3).map(makeCase).join('');
-if(cr2) cr2.innerHTML = cases.slice(3,5).map(makeCase).join('');
+if(cr1) cr1.innerHTML = cases.slice(0,2).map(makeCase).join('');
+if(cr2) cr2.innerHTML = cases.slice(2,4).map(makeCase).join('');
 } catch(e) { console.error('Cases JS error:', e); }
 
 // ===== FAQ =====
