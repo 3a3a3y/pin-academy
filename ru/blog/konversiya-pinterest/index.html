@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Как понять, что Pinterest работает - PinInstinct</title>
+<meta name="description" content="Какая конверсия считается нормальной в Pinterest. 3 метрики, на которые смотрим. Реалистичные ориентиры для старта.">
+<meta name="theme-color" content="#1A1A1A">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://pin-academy.ru/ru/blog/konversiya-pinterest/">
+<meta property="og:title" content="Как понять, что Pinterest работает - PinInstinct">
+<meta property="og:description" content="Какая конверсия считается нормальной в Pinterest. 3 метрики, на которые смотрим. Реалистичные ориентиры для старта.">
+<meta property="og:image" content="https://pin-academy.ru/og-image.jpg">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="PinInstinct">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--red:#C41E1E;--bg:#FFFAF5;--bg2:#F5F0EB;--text:#1A1A1A;--muted:#6B6B6B;--border:#E5E0DA;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;background:var(--bg);color:var(--text);font-size:17px;line-height:1.75;}
+
+nav{background:var(--text);padding:16px 24px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100;}
+.nav-logo{color:#fff;font-weight:700;font-size:18px;text-decoration:none;letter-spacing:-0.3px;}
+.nav-logo span{color:var(--red);}
+.nav-links{display:flex;gap:16px;align-items:center;}
+.nav-links a{color:rgba(255,255,255,0.7);font-size:14px;text-decoration:none;}
+.nav-links a:hover{color:#fff;}
+.nav-cta{background:var(--red);color:#fff;padding:8px 20px;border-radius:6px;text-decoration:none;font-size:14px;font-weight:600;white-space:nowrap;}
+
+.hero{background:var(--text);color:#fff;padding:72px 24px 64px;text-align:center;}
+.hero-tag{display:inline-block;background:var(--red);color:#fff;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:4px 12px;border-radius:4px;margin-bottom:24px;}
+.hero h1{font-size:clamp(24px,4vw,40px);font-weight:700;line-height:1.2;max-width:760px;margin:0 auto 20px;letter-spacing:-0.5px;}
+.hero-lead{font-size:17px;color:rgba(255,255,255,0.75);max-width:560px;margin:0 auto;}
+
+.content{max-width:720px;margin:0 auto;padding:48px 24px 80px;}
+.content h2{font-size:clamp(20px,3vw,28px);font-weight:700;margin:48px 0 16px;letter-spacing:-0.3px;line-height:1.25;}
+.content h3{font-size:20px;font-weight:700;margin:36px 0 12px;}
+.content p{margin-bottom:20px;}
+.content strong{font-weight:700;}
+
+.highlight{background:var(--text);color:#fff;padding:32px;margin:32px 0;border-left:4px solid var(--red);}
+.highlight p{margin-bottom:0;color:rgba(255,255,255,0.9);}
+.highlight strong{color:var(--red);}
+
+.metric-card{background:#fff;border:1px solid var(--border);padding:28px;margin:24px 0;display:flex;gap:20px;align-items:flex-start;}
+.metric-num{font-size:32px;font-weight:800;color:var(--red);line-height:1;flex:none;min-width:60px;}
+.metric-label{font-size:15px;color:var(--muted);margin-top:4px;}
+.metric-desc{font-size:16px;line-height:1.6;}
+
+.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:32px 0;}
+.info-card{background:#fff;border:1px solid var(--border);padding:24px;text-align:center;}
+.info-card .icon{font-size:32px;margin-bottom:12px;}
+.info-card strong{display:block;font-size:15px;margin-bottom:6px;}
+.info-card p{font-size:13px;color:var(--muted);margin:0;line-height:1.45;}
+
+.conversion-block{background:var(--text);color:#fff;padding:48px 32px;margin:40px 0;text-align:center;}
+.conversion-block .big-num{font-size:clamp(48px,8vw,72px);font-weight:800;color:var(--red);line-height:1;}
+.conversion-block .arrow{font-size:32px;color:var(--red);margin:0 16px;}
+.conversion-row{display:flex;align-items:center;justify-content:center;gap:4px;margin:24px 0;}
+.conversion-label{font-size:14px;color:rgba(255,255,255,0.6);margin-top:4px;}
+.conversion-note{background:rgba(255,255,255,0.08);padding:12px 20px;display:inline-block;margin-top:24px;font-size:15px;color:rgba(255,255,255,0.8);}
+
+.timeline{margin:40px 0;position:relative;padding-left:32px;}
+.timeline::before{content:"";position:absolute;left:12px;top:0;bottom:0;width:2px;background:var(--border);}
+.timeline-point{position:relative;margin-bottom:32px;}
+.timeline-point::before{content:"";position:absolute;left:-26px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--border);}
+.timeline-point.active::before{background:var(--red);}
+.timeline-point strong{display:block;margin-bottom:4px;}
+
+.goal-block{background:var(--red);color:#fff;padding:40px 32px;margin:40px 0;text-align:center;}
+.goal-block .goal-num{font-size:clamp(36px,6vw,56px);font-weight:800;line-height:1.1;}
+.goal-block .goal-sub{font-size:16px;opacity:0.85;margin-top:8px;}
+.goal-block .goal-note{font-size:14px;opacity:0.7;margin-top:20px;}
+
+.action-block{background:var(--bg2);padding:32px;margin:40px 0;}
+.action-block h3{margin-top:0;}
+.action-block ol{padding-left:24px;margin:16px 0 0;}
+.action-block li{margin-bottom:12px;font-size:16px;}
+
+.cta-block{text-align:center;padding:48px 24px;background:var(--text);margin:48px 0;color:#fff;}
+.cta-block h3{color:#fff;font-size:22px;font-weight:700;margin-bottom:12px;}
+.cta-block p{color:rgba(255,255,255,0.7);font-size:15px;margin-bottom:24px;}
+.cta-btn{display:inline-block;background:var(--red);color:#fff;padding:14px 32px;border-radius:6px;font-weight:700;font-size:15px;text-decoration:none;}
+
+.back-link{display:inline-block;margin-bottom:32px;color:var(--red);font-size:14px;font-weight:600;text-decoration:none;}
+
+footer{background:var(--text);color:rgba(255,255,255,0.5);text-align:center;padding:32px 24px;font-size:13px;}
+footer a{color:rgba(255,255,255,0.5);text-decoration:none;}
+
+@media(max-width:600px){
+  .info-grid{grid-template-columns:1fr;}
+  .metric-card{flex-direction:column;gap:8px;}
+  .conversion-row{flex-direction:column;gap:12px;}
+  .conversion-block{padding:32px 20px;}
+  .highlight{padding:24px 20px;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/ru/" class="nav-logo"><span>PIN</span>INSTINCT</a>
+  <div class="nav-links">
+    <a href="/ru/blog/">Блог</a>
+    <a href="/ru/#about">Обо мне</a>
+    <a href="/ru/#pricing" class="nav-cta">Курс →</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-tag">Аналитика</div>
+  <h1>Как понять, что Pinterest работает - или: а не фигню ли я делаю?</h1>
+  <p class="hero-lead">3 метрики, на которые смотрим. Какая конверсия считается нормальной. Реалистичные ориентиры для старта.</p>
+</div>
+
+<div class="content">
+  <a href="/ru/blog/" class="back-link">← Все статьи</a>
+
+  <p>У меня сейчас на ведении 5 аккаунтов: магазин детской одежды, ювелирная компания, эксперт по озеленению интерьеров, строительная компания и дизайнер из Майами.</p>
+
+  <p>Разные ниши, разные скорости роста - но одни и те же вопросы от клиентов на старте.</p>
+
+  <p>Поэтому вот честный ответ на вопрос «как понять, что всё идёт нормально».</p>
+
+  <h2>Первое - про ожидания</h2>
+
+  <div class="highlight">
+    <p><strong>Pinterest раскачивается долго.</strong> Это не Instagram и не TikTok, где можно залететь за неделю. Здесь пины работают месяцами, иногда годами - но именно поэтому это долгосрочный актив, а не рулетка.</p>
+  </div>
+
+  <div class="timeline">
+    <div class="timeline-point">
+      <strong>Месяц 1-2</strong>
+      <span>Период раскачки. Мало показов, мало переходов. Это нормально - алгоритм изучает ваш аккаунт.</span>
+    </div>
+    <div class="timeline-point">
+      <strong>Месяц 2-3</strong>
+      <span>Первые пины начинают набирать обороты. Появляются паттерны: что сохраняют, на что кликают.</span>
+    </div>
+    <div class="timeline-point active">
+      <strong>Месяц 3+</strong>
+      <span>Ощутимые результаты. Стабильный рост показов и переходов. Данные для анализа и масштабирования.</span>
+    </div>
+  </div>
+
+  <p>Меньше 3 месяцев я никого не беру в работу - это честно. И вам говорю: раньше смотреть на цифры просто бессмысленно.</p>
+
+  <h2>Второе - про цифры, которые реально важны</h2>
+
+  <p>Когда период затишья позади и пины начали получать трафик, смотрим на три вещи:</p>
+
+  <div class="info-grid">
+    <div class="info-card">
+      <div class="icon">👁</div>
+      <strong>Показы (Охват)</strong>
+      <p>Сколько раз ваши пины появились на экранах. Это ваша видимость - верхний уровень воронки.</p>
+    </div>
+    <div class="info-card">
+      <div class="icon">👆</div>
+      <strong>Переходы (Трафик)</strong>
+      <p>Сколько людей кликнули и перешли на ваш сайт. Это реальный интерес - пользователь хочет узнать больше.</p>
+    </div>
+    <div class="info-card">
+      <div class="icon">📊</div>
+      <strong>Конверсия</strong>
+      <p>Соотношение переходов к показам. Главная метрика эффективности ваших пинов.</p>
+    </div>
+  </div>
+
+  <h2>Какая конверсия считается нормальной?</h2>
+
+  <div class="conversion-block">
+    <div class="conversion-row">
+      <div>
+        <div class="big-num">1000</div>
+        <div class="conversion-label">Показов</div>
+      </div>
+      <div class="arrow">→</div>
+      <div>
+        <div class="big-num" style="color:#fff;">1</div>
+        <div class="conversion-label">Переход</div>
+      </div>
+    </div>
+    <div class="conversion-note">Норма - 1 переход на 1000 показов (0,1%)</div>
+  </div>
+
+  <p>В аналитике Pinterest это называется «коэффициент переходов на другие ресурсы» - соотношение переходов по ссылке к общему числу показов.</p>
+
+  <p>Хорошим считается показатель от 0,1%. У меня сейчас 0,19% - и я считаю это рабочим результатом, не потолком.</p>
+
+  <div class="highlight">
+    <p><strong>Важный нюанс:</strong> у экспертов и авторов конверсия обычно выше, чем у товарных ниш. Заинтересовать человека перейти по ссылке интересным заголовком проще, чем заставить подписаться на Telegram из-за красивого платья. Платье сохранят. Подпишутся - не факт.</p>
+  </div>
+
+  <h2>Третье - про реалистичные ориентиры</h2>
+
+  <div class="goal-block">
+    <div class="goal-num">300 000</div>
+    <div class="goal-sub">показов в месяц</div>
+    <div class="goal-note">Достижимая цель за 3-4 месяца регулярного постинга (3-4 пина в сутки) и грамотно подобранных ключевых слов.</div>
+  </div>
+
+  <p>Хотите больше - постите больше. Математика здесь простая.</p>
+
+  <h2>Где смотреть</h2>
+
+  <p>Аналитика доступна только в бизнес-аккаунте. Если у вас личный - переведите прямо сейчас, это бесплатно и занимает две минуты.</p>
+
+  <div class="action-block">
+    <h3>Что сделать прямо сейчас</h3>
+    <ol>
+      <li>Переведите аккаунт на бизнес (если ещё не сделали)</li>
+      <li>Откройте аналитику и проверьте свою конверсию (ищите 0,1%)</li>
+      <li>Посмотрите показы за последние 30 дней - это ваша текущая точка А</li>
+    </ol>
+  </div>
+
+  <p>Открываете аналитику - смотрите показы, переходы, коэффициент эффективности. Всё остальное - детали, которые имеет смысл разбирать после того, как базовые цифры вас устраивают.</p>
+
+  <p><strong>Какая у вас конверсия прямо сейчас?</strong></p>
+
+  <div class="cta-block">
+    <h3>Хотите разобраться в аналитике системно?</h3>
+    <p>В курсе PinInstinct есть отдельная глава про аналитику - три вопроса раз в неделю, и вы точно знаете что масштабировать.</p>
+    <a href="/ru/#pricing" class="cta-btn">Посмотреть курс →</a>
+  </div>
+
+  <p style="text-align:center;margin-top:32px;">
+    <a href="/ru/blog/" style="color:var(--red);font-weight:600;font-size:14px;">← Все статьи в блоге</a>
+  </p>
+</div>
+
+<footer>
+  <p>© 2026 PinInstinct · <a href="/ru/">Курс</a> · <a href="/ru/blog/">Блог</a> · Полина Соколова</p>
+</footer>
+
+</body>
+</html>
