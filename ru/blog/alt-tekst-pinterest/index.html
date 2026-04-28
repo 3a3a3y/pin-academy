@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Альтернативный текст в Pinterest - скрытое поле, которое почти никто не использует</title>
+<meta name="description" content="Что такое alt-текст в Pinterest, зачем он нужен, как писать и где найти. Формула, примеры, ошибки новичков.">
+<meta name="theme-color" content="#1A1A1A">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://pin-academy.ru/ru/blog/alt-tekst-pinterest/">
+<meta property="og:title" content="Alt-текст в Pinterest - скрытое поле для ключевых слов">
+<meta property="og:description" content="Что такое alt-текст, зачем он нужен, как писать и где найти. Формула, примеры, 3 ошибки новичков.">
+<meta property="og:image" content="https://pin-academy.ru/og-image.jpg">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="PinInstinct">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--red:#C41E1E;--bg:#FFFAF5;--bg2:#F5F0EB;--text:#1A1A1A;--muted:#6B6B6B;--border:#E5E0DA;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;background:var(--bg);color:var(--text);font-size:17px;line-height:1.75;}
+
+nav{background:var(--text);padding:16px 24px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100;}
+.nav-logo{color:#fff;font-weight:700;font-size:18px;text-decoration:none;letter-spacing:-0.3px;}
+.nav-logo span{color:var(--red);}
+.nav-links{display:flex;gap:16px;align-items:center;}
+.nav-links a{color:rgba(255,255,255,0.7);font-size:14px;text-decoration:none;}
+.nav-links a:hover{color:#fff;}
+.nav-cta{background:var(--red);color:#fff;padding:8px 20px;border-radius:6px;text-decoration:none;font-size:14px;font-weight:600;white-space:nowrap;}
+
+.hero{background:var(--text);color:#fff;padding:72px 24px 64px;text-align:center;}
+.hero-tag{display:inline-block;background:var(--red);color:#fff;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:4px 12px;border-radius:4px;margin-bottom:24px;}
+.hero h1{font-size:clamp(22px,4vw,38px);font-weight:700;line-height:1.2;max-width:760px;margin:0 auto 20px;letter-spacing:-0.5px;}
+.hero-lead{font-size:17px;color:rgba(255,255,255,0.75);max-width:560px;margin:0 auto;}
+
+.content{max-width:720px;margin:0 auto;padding:48px 24px 80px;}
+.content h2{font-size:clamp(20px,3vw,28px);font-weight:700;margin:48px 0 16px;letter-spacing:-0.3px;line-height:1.25;}
+.content h3{font-size:20px;font-weight:700;margin:36px 0 12px;}
+.content p{margin-bottom:20px;}
+
+.highlight{background:var(--text);color:#fff;padding:32px;margin:32px 0;border-left:4px solid var(--red);}
+.highlight p{margin-bottom:0;color:rgba(255,255,255,0.9);}
+.highlight strong{color:var(--red);}
+
+.quote-block{background:var(--bg2);border-left:4px solid var(--red);padding:24px 28px;margin:28px 0;font-size:16px;font-style:italic;color:#444;}
+
+.example-box{background:#fff;border:1px solid var(--border);padding:24px;margin:24px 0;}
+.example-box .label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--red);margin-bottom:8px;}
+.example-box p{margin-bottom:0;font-size:15px;line-height:1.6;}
+
+.do-dont{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:28px 0;}
+.do-card,.dont-card{padding:20px;border-radius:4px;}
+.do-card{background:#e8f5e9;border-left:4px solid #2e7d32;}
+.dont-card{background:#fce4ec;border-left:4px solid var(--red);}
+.do-card .label{color:#2e7d32;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;}
+.dont-card .label{color:var(--red);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;}
+.do-card p,.dont-card p{font-size:14px;margin:0;line-height:1.5;}
+
+.formula-box{background:var(--text);color:#fff;padding:32px;margin:32px 0;text-align:center;}
+.formula-box .formula{font-size:18px;font-weight:700;color:var(--red);margin-bottom:16px;letter-spacing:0.5px;}
+.formula-box p{font-size:14px;color:rgba(255,255,255,0.7);margin:0;}
+
+.error-card{background:#fff;border:1px solid var(--border);padding:24px;margin:20px 0;display:flex;gap:16px;align-items:flex-start;}
+.error-num{flex:none;width:32px;height:32px;border-radius:50%;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;}
+.error-card strong{display:block;margin-bottom:6px;}
+.error-card p{font-size:15px;color:#444;margin:0;line-height:1.55;}
+
+.action-block{background:var(--bg2);padding:32px;margin:40px 0;}
+.action-block h3{margin-top:0;}
+.action-block ol{padding-left:24px;margin:16px 0 0;}
+.action-block li{margin-bottom:12px;font-size:16px;}
+
+.cta-block{text-align:center;padding:48px 24px;background:var(--text);margin:48px 0;color:#fff;}
+.cta-block h3{color:#fff;font-size:22px;font-weight:700;margin-bottom:12px;}
+.cta-block p{color:rgba(255,255,255,0.7);font-size:15px;margin-bottom:24px;}
+.cta-btn{display:inline-block;background:var(--red);color:#fff;padding:14px 32px;border-radius:6px;font-weight:700;font-size:15px;text-decoration:none;}
+
+.back-link{display:inline-block;margin-bottom:32px;color:var(--red);font-size:14px;font-weight:600;text-decoration:none;}
+
+footer{background:var(--text);color:rgba(255,255,255,0.5);text-align:center;padding:32px 24px;font-size:13px;}
+footer a{color:rgba(255,255,255,0.5);text-decoration:none;}
+
+@media(max-width:600px){
+  .do-dont{grid-template-columns:1fr;}
+  .error-card{flex-direction:column;gap:8px;}
+  .highlight{padding:24px 20px;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/ru/" class="nav-logo"><span>PIN</span>INSTINCT</a>
+  <div class="nav-links">
+    <a href="/ru/blog/">Блог</a>
+    <a href="/ru/#about">Обо мне</a>
+    <a href="/ru/#pricing" class="nav-cta">Курс →</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-tag">SEO</div>
+  <h1>Альтернативный текст в Pinterest - скрытое поле, которое почти никто не использует</h1>
+  <p class="hero-lead">Что это, зачем нужно, как писать и где найти. Формула, примеры и 3 ошибки новичков.</p>
+</div>
+
+<div class="content">
+  <a href="/ru/blog/" class="back-link">← Все статьи</a>
+
+  <h2>Сначала смешное</h2>
+
+  <p>Вот что говорит официальное руководство Pinterest:</p>
+
+  <div class="quote-block">
+    Когда вы создаёте пин, вы можете добавить альтернативный текст, чтобы объяснить, что люди могут видеть в вашем пине. Это делает ваш пин более доступным для людей, которые полагаются на технологию чтения с экрана.
+  </div>
+
+  <p>Alt-текст (альтернативный текст) - это когда программа озвучивает слабовидящим людям, что на картинке. Проговаривает вслух.</p>
+
+  <p>А теперь вдумайтесь. Слабовидящие люди не пользуются Pinterest. А если и пользуются - это не наша целевая аудитория, уж простите.</p>
+
+  <p>Так зачем нам это поле? Потому что его читает не только программа для слабовидящих. Его читает алгоритм.</p>
+
+  <h2>Зачем нам альт-текст на самом деле</h2>
+
+  <p>Pinterest - это поисковик. К 2026 году он окончательно ушёл от статуса соцсети. Поисковик сопоставляет: описание и изображение должны соответствовать друг другу.</p>
+
+  <p>Картинка для нас - эстетика. Для Pinterest картинка - набор сигналов: что на ней, про что она, кому её показывать, на какой запрос.</p>
+
+  <div class="highlight">
+    <p><strong>Alt-текст - это способ сказать алгоритму: «смотри, это про вот это».</strong> Без маркетинговых текстов. Человек это не прочитает. Просто дополнительная подсказка для поиска.</p>
+  </div>
+
+  <p>И раз человек это не читает - туда можно (и нужно) аккуратно вписать ключевые слова (слова, которые люди вводят в строку поиска Pinterest), чтобы пин попадал в нужные запросы быстрее.</p>
+
+  <h2>Что даёт на практике</h2>
+
+  <p>Помогает Pinterest быстрее понять, что на пине. Особенно если визуал «просто красивый» - без текста на картинке, без очевидного сюжета.</p>
+
+  <p>Помогает попасть в более точные запросы. Меньше случайных показов, больше целевых.</p>
+
+  <p>Добавляет ещё одно поле, где можно разместить ключевые слова. Без ощущения спама в описании.</p>
+
+  <p>Это не волшебная кнопка. Это как подписать коробку, чтобы потом не искать её полчаса в кладовке.</p>
+
+  <h2>Как писать альт-текст</h2>
+
+  <p>Главное: это описание картинки. Не продающее. Не вдохновляющее. Не «переходи в телеграм». Просто: что видим.</p>
+
+  <p>Представьте, что объясняете по телефону: «на фото вот это, стоит вот тут, выглядит вот так».</p>
+
+  <div class="formula-box">
+    <div class="formula">[что это] + [где] + [что рядом] + [детали] + [стиль/назначение]</div>
+    <p>Формула для любого пина. Лимит - 500 символов, но обычно хватает 100-200.</p>
+  </div>
+
+  <div class="example-box">
+    <div class="label">Пример: интерьер</div>
+    <p>Чёрный круглый приставной столик рядом с креслом, на столике белая чашка кофе, блокнот и керамическая ваза с сухоцветами, минималистичная гостиная, уютный уголок, акцент в интерьере.</p>
+  </div>
+
+  <div class="example-box">
+    <div class="label">Пример: товар</div>
+    <p>Стеклянный стакан с цветными вставками и фактурной огранкой, крупный план в руке, солнечные блики, посуда для напитков, цветное стекло.</p>
+  </div>
+
+  <h2>Как вписывать ключевые слова</h2>
+
+  <p>Ключи - да. Но как часть нормальной фразы, а не набор через запятую.</p>
+
+  <div class="do-dont">
+    <div class="do-card">
+      <div class="label">Нормально</div>
+      <p>«уютный уголок, акцент в интерьере, приставной столик, минимализм в гостиной»</p>
+    </div>
+    <div class="dont-card">
+      <div class="label">Ненормально</div>
+      <p>«уют, интерьер, акценты, столик, стиль, красиво, купить, дизайн» - это уже похоже на приступ заикания</p>
+    </div>
+  </div>
+
+  <h2>Чего в альт-тексте быть не должно</h2>
+
+  <p>«Переходите», «ссылка», «телеграм», «подпишись» - нет. Эмоции типа «красивый/лучший/идеальный» - нет. Хэштеги - нет. Вода и философия - для этого есть описание пина.</p>
+
+  <h2>Где найти поле альт-текста</h2>
+
+  <p>Доступен в редакторе пинов в веб-версии и в мобильном приложении.</p>
+
+  <p>Когда создаёте пин (или редактируете уже опубликованный), внизу есть «Дополнительные параметры». Нажимаете стрелочку - ищите пункт «Альтернативный текст». Иногда он называется «Замещающий текст» (в каруселях).</p>
+
+  <p>Лимит - до 500 символов. Это не сочинение. Достаточно 100-200 символов по делу.</p>
+
+  <h2>Как проверить что написали нормально</h2>
+
+  <p>Очень простая проверка: если читаете свой альт-текст и можете представить картинку - ок. Если читаете и там «уют, дизайн, вдохновение» - это не альт-текст, это тоска.</p>
+
+  <h2>3 ошибки новичков</h2>
+
+  <div class="error-card">
+    <div class="error-num">1</div>
+    <div>
+      <strong>Превращают альт-текст в описание пина</strong>
+      <p>Начинают рассказывать историю, добавлять эмоции, «переходите», «ссылка», «подписывайтесь». Это поле не для этого.</p>
+    </div>
+  </div>
+
+  <div class="error-card">
+    <div class="error-num">2</div>
+    <div>
+      <strong>Закидывают мешок ключей</strong>
+      <p>Набор слов через запятую без связи. Pinterest такое считывает как мусор. Ключи нужно вписывать внутри нормальной фразы.</p>
+    </div>
+  </div>
+
+  <div class="error-card">
+    <div class="error-num">3</div>
+    <div>
+      <strong>Пишут слишком абстрактно</strong>
+      <p>«Красивая картинка», «уют», «эстетика», «дом мечты». Pinterest такой: ну класс, а что на фото-то? Нужно конкретно: что за предмет, где стоит, какие материалы.</p>
+    </div>
+  </div>
+
+  <h2>Лайфхак для «настроенческих» пинов</h2>
+
+  <p>Если пин визуально «про настроение», но непонятно про что он конкретно - альт-текст спасает. Потому что вы можете назвать вещи своими именами: столик, кресло, плед, стаканы, цветное стекло, сервировка, минимализм.</p>
+
+  <p>Алгоритм получает конкретику, даже если картинка абстрактная.</p>
+
+  <div class="action-block">
+    <h3>Что сделать прямо сейчас</h3>
+    <ol>
+      <li>Откройте любой свой опубликованный пин в веб-версии</li>
+      <li>Нажмите «Редактировать» → «Дополнительные параметры»</li>
+      <li>Найдите поле «Альтернативный текст»</li>
+      <li>Опишите картинку по формуле: что + где + детали + ключевые слова</li>
+      <li>Сохраните. Повторите для 5-10 пинов - и посмотрите на разницу через месяц</li>
+    </ol>
+  </div>
+
+  <div class="cta-block">
+    <h3>Хотите разобраться в Pinterest-SEO системно?</h3>
+    <p>В курсе PinInstinct есть отдельная глава про ключевые слова - 4 места, где алгоритм читает текст, автоподсказки, кластеры и alt-текст.</p>
+    <a href="/ru/#pricing" class="cta-btn">Посмотреть курс →</a>
+  </div>
+
+  <p style="text-align:center;margin-top:32px;">
+    <a href="/ru/blog/" style="color:var(--red);font-weight:600;font-size:14px;">← Все статьи в блоге</a>
+  </p>
+</div>
+
+<footer>
+  <p>© 2026 PinInstinct · <a href="/ru/">Курс</a> · <a href="/ru/blog/">Блог</a> · Полина Соколова</p>
+</footer>
+
+</body>
+</html>
