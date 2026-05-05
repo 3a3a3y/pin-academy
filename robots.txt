@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pin-academy.ru/sitemap.xml
