@@ -49,8 +49,8 @@
   button{font-family:inherit;cursor:pointer;border:none;}
   .container{width:100%;max-width:1200px;margin:0 auto;padding:0 32px;}
   h1,h2,h3,h4{font-weight:800;letter-spacing:-0.02em;line-height:1.1;color:var(--ink);word-break:keep-all;overflow-wrap:break-word;}
-  h1{font-size:clamp(28px,5vw,76px);}
-  h2{font-size:clamp(22px,3.5vw,52px);letter-spacing:-0.02em;}
+  h1{font-size:clamp(24px,4vw,56px);}
+  h2{font-size:clamp(20px,3vw,42px);letter-spacing:-0.02em;}
   h3{font-size:clamp(17px,2vw,24px);letter-spacing:-0.01em;}
   p{word-break:normal;overflow-wrap:break-word;}
   .eyebrow{
@@ -113,7 +113,7 @@
     font-size:13px;font-weight:500;color:var(--ink);margin-bottom:28px;
   }
   .hero-tag .dot{width:8px;height:8px;background:var(--red);border-radius:50%;}
-  .hero h1{font-size:clamp(26px,5vw,78px);font-weight:800;line-height:1.08;letter-spacing:-0.025em;margin-bottom:28px;}
+  .hero h1{font-size:clamp(24px,4vw,56px);font-weight:800;line-height:1.12;letter-spacing:-0.02em;margin-bottom:24px;}
   .hero h1 .mark{
     background:var(--red);color:#fff;padding:0 14px;
     display:inline-block;transform:skew(-2deg);margin:0 -2px;
@@ -305,7 +305,7 @@
 
   /* ===== PRICING ===== */
   .pricing{background:var(--cream);}
-  .pricing-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px;}
+  .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:24px;}
   .price-card{background:#fff;padding:32px 26px;display:flex;flex-direction:column;gap:20px;position:relative;border:1px solid var(--line);transition:transform .25s,box-shadow .25s;}
   .price-card:hover{transform:translateY(-4px);box-shadow:0 24px 50px -20px rgba(0,0,0,0.18);}
   .price-card .tier{font-size:13px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);}
@@ -328,7 +328,7 @@
   .price-card.popular .btn{background:var(--red);}
   .price-card.popular .btn:hover{background:#e22626;}
   .popular-badge{position:absolute;top:-1px;right:-1px;background:var(--red);color:#fff;font-size:11px;font-weight:700;letter-spacing:0.12em;padding:6px 10px;text-transform:uppercase;}
-  .audit-card{background:var(--sand);border:1px dashed rgba(26,26,26,0.25);padding:36px 40px;display:grid;grid-template-columns:auto 1fr auto;gap:40px;align-items:center;}
+  .audit-card{background:var(--sand);border:1px dashed rgba(26,26,26,0.25);padding:36px 40px;display:grid;grid-template-columns:1fr auto auto;gap:24px;align-items:center;margin-top:24px;}
   .audit-card .tier{font-size:13px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--red);margin-bottom:6px;}
   .audit-card h3{font-size:24px;}
   .audit-card .desc{font-size:15px;color:var(--muted);margin-top:6px;max-width:540px;}
@@ -336,7 +336,7 @@
   .audit-card .amount span{font-size:13px;font-weight:500;color:var(--muted);display:block;margin-top:4px;letter-spacing:0;}
   .audit-card .btn{background:var(--ink);color:#fff;padding:16px 28px;font-weight:600;font-size:14px;white-space:nowrap;display:inline-block;transition:background .2s;}
   .audit-card .btn:hover{background:var(--red);}
-  @media(max-width:1000px){.pricing-grid{grid-template-columns:repeat(2,1fr);}.price-card.popular{transform:none;}}
+  @media(max-width:1000px){.pricing-grid{grid-template-columns:repeat(2,1fr);}.price-card.popular{transform:none;}.audit-card{grid-template-columns:1fr;gap:16px;padding:24px;}.audit-card .amount{font-size:28px;}}
   @media(max-width:560px){.pricing-grid{grid-template-columns:1fr;}.audit-card{grid-template-columns:1fr;gap:20px;padding:28px;}}
 
   /* ===== WHOM ===== */
