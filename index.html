@@ -282,6 +282,15 @@
   /* ===== BLOG BANNER (тонкая полоска) ===== */
   .blog-banner{background:var(--sand);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:14px 0;}
   .blog-banner-inner{display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;}
+  /* launch banner */
+  .launch-bar{background:var(--ink);color:var(--cream);padding:16px 0;}
+  .launch-inner{display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap;text-align:left;}
+  .launch-flag{font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;background:var(--red);color:#fff;padding:5px 10px;flex:none;}
+  .launch-text{font-size:15px;font-weight:600;color:#fff;}
+  .launch-sub{font-size:13px;color:rgba(255,250,245,0.65);}
+  .launch-cta{display:inline-flex;align-items:center;gap:8px;background:var(--red);color:#fff;font-size:14px;font-weight:600;padding:11px 20px;white-space:nowrap;flex:none;transition:background .15s,gap .2s;}
+  .launch-cta:hover{background:var(--red-dark);gap:12px;}
+  @media(max-width:700px){.launch-inner{gap:14px;}.launch-text{font-size:14px;}}
   .blog-banner-text{font-size:14px;color:var(--muted);}
   .blog-banner-link{font-size:14px;font-weight:600;color:var(--red);display:inline-flex;align-items:center;gap:6px;transition:gap .2s;}
   .blog-banner-link:hover{gap:10px;}
@@ -510,6 +519,18 @@
     </div>
   </div>
 </nav>
+
+<!-- LAUNCH BANNER -->
+<div class="launch-bar">
+  <div class="container launch-inner">
+    <span class="launch-flag">Набор открыт</span>
+    <div>
+      <div class="launch-text">Живой интенсив: три недели работаем с вашим Pinterest вместе</div>
+      <div class="launch-sub">10-30 августа, до 20 человек. До 2 августа участие 5 900 ₽, дальше 7 900 ₽.</div>
+    </div>
+    <a href="/ru/intensive/" class="launch-cta">Смотреть программу <span aria-hidden="true">→</span></a>
+  </div>
+</div>
 
 <!-- HERO -->
 <header class="hero">
