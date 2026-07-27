@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="p:domain_verify" content="6ff4b3a8f9086b1acc503f4ffecdef8f">
+  <title>Живой интенсив PinInstinct - 10-30 августа 2026</title>
+  <meta name="description" content="Три недели живой работы с вашим Pinterest: 3 встречи, полный курс в записи и ежедневная обратная связь в чате. Старт 10 августа.">
+  <meta name="theme-color" content="#1A1A1A">
+  <link rel="canonical" href="https://pinacademy.ru/ru/intensive/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pinacademy.ru/ru/intensive/">
+  <meta property="og:title" content="Живой интенсив PinInstinct - три недели вместе">
+  <meta property="og:description" content="Разберём ваш проект, сделаем пины, настроим ссылки и посмотрим первые данные. Старт 10 августа, до 20 человек.">
+  <meta property="og:image" content="https://pinacademy.ru/ru/assets/intensive-og.jpg">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="PinInstinct">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Живой интенсив PinInstinct - три недели вместе">
+  <meta name="twitter:description" content="3 встречи, полный курс в записи и ежедневная обратная связь в чате. Старт 10 августа.">
+  <meta name="twitter:image" content="https://pinacademy.ru/ru/assets/intensive-og.jpg">
+
+  <style>
+    :root {
+      --red: #C41E1E;
+      --red-dark: #9F1717;
+      --ink: #1A1A1A;
+      --cream: #FFFAF5;
+      --sand: #F3EEE8;
+      --sand-dark: #E6DED5;
+      --muted: #6B6560;
+      --white: #FFFFFF;
+      --line: rgba(26, 26, 26, 0.12);
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: var(--ink);
+      background: var(--cream);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    .container { width: min(100% - 48px, var(--max)); margin: 0 auto; }
+    .section { padding: 104px 0; }
+    .section-sand { background: var(--sand); }
+    .section-dark { background: var(--ink); color: var(--cream); }
+    .section-red { background: var(--red); color: var(--white); }
+
+    h1, h2, h3 {
+      font-weight: 850;
+      line-height: 1.06;
+      letter-spacing: -0.035em;
+      text-wrap: balance;
+    }
+    h1 { font-size: clamp(42px, 7.2vw, 90px); }
+    h2 { font-size: clamp(34px, 5vw, 62px); }
+    h3 { font-size: clamp(21px, 2.2vw, 29px); }
+    p { text-wrap: pretty; }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+      color: var(--red);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before { content: ""; width: 28px; height: 2px; background: currentColor; }
+    .section-dark .eyebrow, .section-red .eyebrow { color: #FFB2B2; }
+    .section-head { max-width: 820px; margin-bottom: 54px; }
+    .section-head p { margin-top: 22px; max-width: 700px; font-size: 18px; color: var(--muted); }
+    .section-dark .section-head p { color: rgba(255, 250, 245, 0.7); }
+    .section-red .section-head p { color: rgba(255, 255, 255, 0.82); }
+
+    .promo {
+      background: var(--red);
+      color: var(--white);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      text-align: center;
+      padding: 10px 16px;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 250, 245, 0.94);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .logo { display: inline-flex; align-items: center; gap: 9px; font-size: 19px; font-weight: 850; }
+    .logo svg { color: var(--red); }
+    .logo b { color: var(--red); }
+    .logo span span { font-weight: 520; }
+    .nav-links { display: flex; align-items: center; gap: 24px; font-size: 14px; font-weight: 600; color: var(--muted); }
+    .nav-links a:hover { color: var(--red); }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      min-height: 58px;
+      padding: 15px 26px;
+      background: var(--red);
+      color: var(--white);
+      border: 2px solid var(--red);
+      border-radius: 2px;
+      font-size: 16px;
+      font-weight: 750;
+      transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.2s;
+    }
+    .button:hover { background: var(--red-dark); border-color: var(--red-dark); transform: translateY(-2px); }
+    .button-dark { background: var(--ink); border-color: var(--ink); }
+    .button-dark:hover { background: #000; border-color: #000; }
+    .button-light { background: var(--cream); border-color: var(--cream); color: var(--ink); }
+    .button-light:hover { background: var(--white); border-color: var(--white); }
+    .button-outline { background: transparent; color: var(--ink); border-color: var(--ink); }
+    .button-outline:hover { background: var(--ink); color: var(--cream); border-color: var(--ink); }
+    .button-small { min-height: 44px; padding: 10px 18px; font-size: 14px; }
+
+    .hero { position: relative; overflow: hidden; padding: 72px 0 86px; }
+    .hero::after {
+      content: "PIN";
+      position: absolute;
+      right: -0.04em;
+      bottom: -0.29em;
+      z-index: 0;
+      color: rgba(196, 30, 30, 0.055);
+      font-size: clamp(210px, 32vw, 500px);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.08em;
+      pointer-events: none;
+    }
+    .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.38fr 0.62fr; gap: 64px; align-items: center; }
+    .hero h1 .accent { color: var(--red); }
+    .hero-lead { max-width: 720px; margin-top: 28px; font-size: clamp(18px, 2vw, 22px); color: #3C3835; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+    .hero-note { margin-top: 16px; font-size: 13px; color: var(--muted); }
+    .hero-facts { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 30px; }
+    .hero-fact { padding: 9px 12px; background: var(--sand); border: 1px solid var(--line); font-size: 13px; font-weight: 650; }
+    .hero-card { position: relative; background: var(--ink); color: var(--cream); padding: 34px 30px; min-height: 450px; display: flex; flex-direction: column; }
+    .hero-card .big { color: var(--red); font-size: 112px; font-weight: 900; line-height: 0.78; letter-spacing: -0.08em; }
+    .hero-card h2 { margin-top: 26px; color: var(--cream); font-size: 34px; }
+    .hero-card ul { list-style: none; margin-top: 28px; border-top: 1px solid rgba(255,255,255,0.16); }
+    .hero-card li { display: flex; gap: 12px; padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,0.12); font-size: 15px; }
+    .hero-card li span { color: #FF7373; font-weight: 800; }
+    .hero-card .places { margin-top: auto; padding-top: 24px; color: rgba(255,250,245,0.65); font-size: 13px; }
+
+    .questions { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--ink); }
+    .question { min-height: 180px; padding: 26px 24px; border-right: 1px solid var(--ink); border-bottom: 1px solid var(--ink); display: flex; flex-direction: column; justify-content: space-between; }
+    .question:nth-child(3n+1) { border-left: 1px solid var(--ink); }
+    .question-num { color: var(--red); font-size: 12px; font-weight: 850; letter-spacing: 0.12em; }
+    .question p { max-width: 280px; font-size: 18px; font-weight: 720; line-height: 1.35; }
+    .centipede { margin-top: 34px; max-width: 760px; font-size: 20px; }
+
+    .weeks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .week { position: relative; padding: 32px; background: var(--cream); border: 1px solid var(--line); min-height: 570px; display: flex; flex-direction: column; }
+    .week-index { color: var(--red); font-size: 12px; font-weight: 850; letter-spacing: 0.16em; text-transform: uppercase; }
+    .week h3 { margin-top: 22px; }
+    .week > p { margin-top: 16px; color: var(--muted); font-size: 15px; }
+    .week ul { list-style: none; margin-top: 26px; }
+    .week li { position: relative; padding: 12px 0 12px 22px; border-top: 1px solid var(--line); font-size: 15px; }
+    .week li::before { content: ""; position: absolute; left: 0; top: 22px; width: 9px; height: 2px; background: var(--red); }
+    .week-example { margin-top: auto; padding: 18px; background: var(--sand); font-size: 14px; line-height: 1.5; }
+    .week-example strong { display: block; margin-bottom: 6px; color: var(--red); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; }
+
+    .format-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 72px; align-items: start; }
+    .format-intro p { margin-top: 24px; color: rgba(255,250,245,0.72); font-size: 19px; }
+    .format-list { border-top: 1px solid rgba(255,255,255,0.3); }
+    .format-item { display: grid; grid-template-columns: 72px 1fr; gap: 22px; padding: 24px 0; border-bottom: 1px solid rgba(255,255,255,0.18); }
+    .format-item .num { color: #FF7373; font-size: 13px; font-weight: 850; letter-spacing: 0.12em; }
+    .format-item h3 { color: var(--cream); font-size: 23px; }
+    .format-item p { margin-top: 8px; color: rgba(255,250,245,0.67); font-size: 15px; }
+    .chat-quote { margin-top: 28px; padding: 24px 26px; background: var(--red); color: var(--white); font-size: 18px; line-height: 1.55; }
+
+    .types { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+    .type { padding: 24px; min-height: 210px; background: var(--white); border-top: 3px solid var(--red); }
+    .type-icon { width: 38px; height: 38px; display: grid; place-items: center; margin-bottom: 28px; background: var(--ink); color: var(--white); font-size: 16px; font-weight: 850; }
+    .type h3 { font-size: 20px; }
+    .type p { margin-top: 12px; color: var(--muted); font-size: 14px; }
+
+    .result-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .result-copy p { margin-top: 22px; font-size: 18px; color: #3C3835; }
+    .result-list { list-style: none; margin-top: 28px; }
+    .result-list li { position: relative; padding: 16px 0 16px 28px; border-top: 1px solid var(--line); font-size: 16px; }
+    .result-list li:last-child { border-bottom: 1px solid var(--line); }
+    .result-list li::before { content: "+"; position: absolute; left: 0; color: var(--red); font-size: 20px; font-weight: 850; }
+    .analytics-card { background: var(--white); border: 1px solid var(--line); padding: 18px; }
+    .analytics-card img { width: 100%; max-height: 620px; object-fit: contain; background: var(--sand); }
+    .analytics-caption { padding: 18px 4px 2px; }
+    .analytics-caption strong { display: block; font-size: 18px; }
+    .analytics-caption p { margin-top: 6px; color: var(--muted); font-size: 14px; }
+    .metrics { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 18px; border: 1px solid var(--line); }
+    .metric { padding: 16px; border-right: 1px solid var(--line); }
+    .metric:last-child { border-right: 0; }
+    .metric strong { color: var(--red); font-size: 23px; }
+    .metric span { display: block; margin-top: 4px; color: var(--muted); font-size: 11px; }
+
+    .about-grid { display: grid; grid-template-columns: 0.72fr 1.28fr; gap: 72px; align-items: center; }
+    .about-photo { position: relative; }
+    .about-photo::before { content: ""; position: absolute; inset: -12px 12px 12px -12px; border: 2px solid var(--red); z-index: 0; }
+    .about-photo img { position: relative; z-index: 1; width: 100%; max-height: 620px; object-fit: cover; object-position: center 20%; filter: grayscale(100%); }
+    .about-copy p { margin-top: 20px; max-width: 670px; font-size: 18px; color: rgba(255,250,245,0.72); }
+    .about-copy strong { color: var(--cream); }
+    .about-facts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
+    .about-fact { padding: 10px 12px; border: 1px solid rgba(255,255,255,0.2); color: rgba(255,250,245,0.8); font-size: 13px; }
+
+    .faq-list { max-width: 900px; border-top: 1px solid var(--ink); }
+    .faq-item { border-bottom: 1px solid var(--ink); }
+    .faq-item summary { list-style: none; cursor: pointer; padding: 24px 0; display: grid; grid-template-columns: 1fr 38px; gap: 20px; align-items: center; font-size: 18px; font-weight: 760; }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-icon { width: 34px; height: 34px; display: grid; place-items: center; border: 1px solid var(--ink); font-size: 20px; font-weight: 400; transition: transform 0.2s, background 0.2s, color 0.2s; }
+    .faq-item[open] .faq-icon { transform: rotate(45deg); background: var(--red); border-color: var(--red); color: var(--white); }
+    .faq-answer { max-width: 760px; padding: 0 58px 25px 0; color: var(--muted); font-size: 16px; }
+
+    .payment { position: relative; overflow: hidden; }
+    .payment::after { content: "5900"; position: absolute; right: -0.05em; bottom: -0.25em; color: rgba(255,255,255,0.06); font-size: clamp(180px, 30vw, 420px); font-weight: 900; line-height: 1; letter-spacing: -0.08em; pointer-events: none; }
+    .payment-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 0.72fr; gap: 70px; align-items: center; }
+    .payment h2 { color: var(--white); }
+    .payment-copy p { margin-top: 22px; max-width: 650px; color: rgba(255,255,255,0.82); font-size: 18px; }
+    .price-card { padding: 34px; background: var(--white); color: var(--ink); }
+    .price-label { color: var(--red); font-size: 12px; font-weight: 850; letter-spacing: 0.14em; text-transform: uppercase; }
+    .price { margin-top: 10px; font-size: clamp(52px, 6vw, 78px); font-weight: 900; line-height: 1; letter-spacing: -0.05em; }
+    .price-old { margin-top: 9px; color: var(--muted); font-size: 14px; }
+    .price-card ul { list-style: none; margin: 24px 0; border-top: 1px solid var(--line); }
+    .price-card li { padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 14px; }
+    .price-card .button { width: 100%; }
+    .price-safe { margin-top: 12px; text-align: center; color: var(--muted); font-size: 12px; }
+
+    .footer { padding: 40px 0 86px; background: #111; color: var(--cream); }
+    .footer-grid { display: flex; align-items: end; justify-content: space-between; gap: 32px; }
+    .footer p { margin-top: 10px; color: rgba(255,250,245,0.5); font-size: 13px; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 20px; color: rgba(255,250,245,0.7); font-size: 13px; }
+    .footer-links a:hover { color: var(--white); }
+
+    .mobile-buy { display: none; }
+
+    @media (max-width: 980px) {
+      .hero-grid, .format-grid, .result-grid, .about-grid, .payment-grid { grid-template-columns: 1fr; }
+      .hero-card { min-height: auto; }
+      .questions { grid-template-columns: repeat(2, 1fr); }
+      .question:nth-child(3n+1) { border-left: 0; }
+      .question:nth-child(2n+1) { border-left: 1px solid var(--ink); }
+      .weeks { grid-template-columns: 1fr; }
+      .week { min-height: auto; }
+      .types { grid-template-columns: repeat(2, 1fr); }
+      .about-photo { max-width: 460px; }
+      .analytics-card { max-width: 620px; }
+    }
+
+    @media (max-width: 720px) {
+      .container { width: min(100% - 30px, var(--max)); }
+      .section { padding: 72px 0; }
+      .nav-links a:not(.button) { display: none; }
+      .hero { padding: 50px 0 66px; }
+      .hero-grid { gap: 42px; }
+      .hero-actions .button { width: 100%; }
+      .hero-card { padding: 28px 22px; }
+      .hero-card .big { font-size: 86px; }
+      .questions { grid-template-columns: 1fr; }
+      .question, .question:nth-child(2n+1), .question:nth-child(3n+1) { border-left: 1px solid var(--ink); border-right: 1px solid var(--ink); min-height: 145px; }
+      .types { grid-template-columns: 1fr; }
+      .type { min-height: auto; }
+      .format-item { grid-template-columns: 48px 1fr; }
+      .metrics { grid-template-columns: 1fr; }
+      .metric { border-right: 0; border-bottom: 1px solid var(--line); }
+      .metric:last-child { border-bottom: 0; }
+      .price-card { padding: 28px 22px; }
+      .footer-grid { align-items: start; flex-direction: column; }
+      .mobile-buy {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 60;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+        padding: 10px 15px;
+        background: var(--cream);
+        border-top: 1px solid var(--line);
+        box-shadow: 0 -10px 30px rgba(0,0,0,0.08);
+      }
+      .mobile-buy strong { display: block; font-size: 17px; }
+      .mobile-buy span { display: block; color: var(--muted); font-size: 10px; }
+      .mobile-buy .button { min-height: 46px; padding: 10px 16px; font-size: 13px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="promo">До 2 августа участие стоит 5 900 ₽. С 3 августа - 7 900 ₽.</div>
+
+  <nav class="nav" aria-label="Основная навигация">
+    <div class="container nav-inner">
+      <a class="logo" href="/" aria-label="PinInstinct - на главную">
+        <svg width="17" height="23" viewBox="0 0 20 26" fill="currentColor" aria-hidden="true"><path d="M11 0L0 15h6L3 26l11-15H8L11 0z"/></svg>
+        <span><b>PIN</b><span>INSTINCT</span></span>
+      </a>
+      <div class="nav-links">
+        <a href="#program">Программа</a>
+        <a href="#format">Как всё устроено</a>
+        <a href="#faq">Вопросы</a>
+        <a class="button button-small" href="#payment">Записаться</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Живой интенсив · 10-30 августа</div>
+          <h1>Соберём Pinterest <span class="accent">под ваш проект</span> за три недели</h1>
+          <p class="hero-lead">До 20 человек, три живые встречи и чат, куда можно хоть каждый день приносить свои пины, доски, ссылки и статистику.</p>
+          <div class="hero-actions">
+            <a class="button" href="#payment">Записаться за 5 900 ₽ <span aria-hidden="true">→</span></a>
+            <a class="button button-outline" href="#program">Посмотреть программу</a>
+          </div>
+          <p class="hero-note">Первая цена действует до 2 августа включительно. Набор закроется 9 августа или раньше, если закончатся места.</p>
+          <div class="hero-facts" aria-label="Коротко об интенсиве">
+            <span class="hero-fact">3 недели работы</span>
+            <span class="hero-fact">3 живые встречи</span>
+            <span class="hero-fact">Полный курс в записи</span>
+            <span class="hero-fact">Обратная связь в чате</span>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Три недели интенсива">
+          <div class="big">03</div>
+          <h2>Недели, в которые вы не останетесь один на один с уроками</h2>
+          <ul>
+            <li><span>01</span> Разбираем проект и аккаунт</li>
+            <li><span>02</span> Делаем и публикуем пины</li>
+            <li><span>03</span> Проверяем ссылки и первые данные</li>
+          </ul>
+          <div class="places">В группе до 20 человек</div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section section-sand">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Знакомая сцена?</div>
+          <h2>Урок посмотрели. Всё понятно. Открыли свой аккаунт - и началось</h2>
+        </div>
+
+        <div class="questions">
+          <article class="question"><span class="question-num">01</span><p>Как назвать доски?</p></article>
+          <article class="question"><span class="question-num">02</span><p>Какие темы оставить?</p></article>
+          <article class="question"><span class="question-num">03</span><p>Куда вести людей?</p></article>
+          <article class="question"><span class="question-num">04</span><p>Переделывать старый аккаунт или начинать новый?</p></article>
+          <article class="question"><span class="question-num">05</span><p>Что сделать из старых постов и фотографий?</p></article>
+          <article class="question"><span class="question-num">06</span><p>Почему показы есть, а переходов семь?</p></article>
+        </div>
+
+        <p class="centipede">И вот вы уже сидите перед Pinterest как сороконожка, которую спросили, с какой ноги она начинает идти. В группе будем принимать решения прямо на вашем проекте, а не на абстрактном примере из урока.</p>
+      </div>
+    </section>
+
+    <section class="section" id="program">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Программа</div>
+          <h2>Что будем делать три недели</h2>
+          <p>Работаем с тем, что у вас уже есть: постами, статьями, товарами, услугами, фотографиями и аккаунтами, которые однажды начали вести и забросили.</p>
+        </div>
+
+        <div class="weeks">
+          <article class="week">
+            <div class="week-index">Неделя 01</div>
+            <h3>Сначала разберём сам проект</h3>
+            <p>Pinterest не сможет нормально продвигать то, что мы сами пока объясняем тремя разными способами.</p>
+            <ul>
+              <li>Что вы продаёте и кому это нужно</li>
+              <li>Что человек может искать в Pinterest</li>
+              <li>Какие темы и доски нужны аккаунту</li>
+              <li>Куда вести людей после пина</li>
+              <li>Что делать со старым аккаунтом</li>
+            </ul>
+            <div class="week-example"><strong>Например</strong>Психолог ведёт людей на конкретный пост о тревоге. Бренд украшений - на подборку колец. Автор Telegram-канала - на материал, после которого хочется подписаться.</div>
+          </article>
+
+          <article class="week">
+            <div class="week-index">Неделя 02</div>
+            <h3>Сделаем пины из вашего контента</h3>
+            <p>Пятьдесят новых статей и фотосессия с павлином не понадобятся. Сначала раскопаем то, что уже лежит без дела.</p>
+            <ul>
+              <li>Пины с готовой пользой внутри - их сохраняют</li>
+              <li>Пины с продолжением - по ним переходят</li>
+              <li>Пины с ответами перед покупкой</li>
+              <li>Заголовки, которые понятны за секунду</li>
+              <li>Публикация и ссылки без каши</li>
+            </ul>
+            <div class="week-example"><strong>Например</strong>«Какой формат консультации выбрать», «Серебро или позолота», «Кому подойдёт самостоятельный курс, а кому нужна группа».</div>
+          </article>
+
+          <article class="week">
+            <div class="week-index">Неделя 03</div>
+            <h3>Посмотрим, что происходит после клика</h3>
+            <p>Красивый пин может привести человека в пост, где он три минуты пытается понять, кто вы и что здесь вообще продают.</p>
+            <ul>
+              <li>Проверим страницы и посты, на которые ведут пины</li>
+              <li>Доработаем кнопки и понятные действия</li>
+              <li>Посмотрим первые показы, сохранения и переходы</li>
+              <li>Решим, какие темы продолжать сериями</li>
+              <li>Соберём план после окончания группы</li>
+            </ul>
+            <div class="week-example"><strong>В итоге</strong>Пин, ссылка и страница будут продолжать одну мысль. Человеку не придётся искать обещанный материал среди восьмидесяти постов.</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="format">
+      <div class="container format-grid">
+        <div class="format-intro">
+          <div class="eyebrow">Как всё устроено</div>
+          <h2>Я буду рядом все три недели</h2>
+          <p>Главная часть интенсива происходит не только на встречах. Между ними вы работаете со своим проектом и сразу приносите вопросы в чат.</p>
+          <div class="chat-quote">В чат можно хоть каждый день приносить пины, заголовки, доски, ссылки, страницы и статистику. Я буду смотреть, отвечать и помогать докручивать по ходу работы.</div>
+        </div>
+
+        <div class="format-list">
+          <article class="format-item">
+            <div class="num">01</div>
+            <div><h3>Три живые встречи</h3><p>На каждой неделе собираемся, разбираем новый этап и смотрим, где вы застряли.</p></div>
+          </article>
+          <article class="format-item">
+            <div class="num">02</div>
+            <div><h3>Полный курс в записи</h3><p>Теорию можно смотреть в удобное время и возвращаться к нужным урокам во время работы.</p></div>
+          </article>
+          <article class="format-item">
+            <div class="num">03</div>
+            <div><h3>Закрытый чат</h3><p>Чат рассчитан на регулярную работу. Можно показывать новые пины, заголовки и страницы по мере готовности и получать ответ.</p></div>
+          </article>
+          <article class="format-item">
+            <div class="num">04</div>
+            <div><h3>Два моих аккаунта вместе с вами</h3><p>Покажу, что публикую, почему выбрала эти темы, что сработало и что оказалось ерундой.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-sand">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">С чем можно приходить</div>
+          <h2>Проект не обязан быть идеально подготовлен</h2>
+          <p>Аккаунта в Pinterest пока может вообще не быть. Сделаем. Если аккаунт есть, посмотрим, что с ним происходит и стоит ли его переделывать.</p>
+        </div>
+
+        <div class="types">
+          <article class="type"><div class="type-icon">01</div><h3>Услуги и экспертные проекты</h3><p>Консультации, обучение, дизайн, психология, тексты, творчество и другие услуги.</p></article>
+          <article class="type"><div class="type-icon">02</div><h3>Товары и небольшие бренды</h3><p>Украшения, одежда, декор, цифровые продукты, маркетплейсы и собственные магазины.</p></article>
+          <article class="type"><div class="type-icon">03</div><h3>Telegram-каналы и блоги</h3><p>Будем приводить читателей на конкретные посты и готовить канал к новым людям.</p></article>
+          <article class="type"><div class="type-icon">04</div><h3>Старые и брошенные аккаунты</h3><p>Показы есть рывками, переходов мало или вы давно не понимаете, что публиковать.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container result-grid">
+        <div class="result-copy">
+          <div class="eyebrow">К концу трёх недель</div>
+          <h2>К концу трёх недель работа уже будет запущена</h2>
+          <p>Pinterest часто раскачивается дольше трёх недель. За время группы успеем собрать основу, опубликовать пины, проверить ссылки и получить первые данные.</p>
+          <ul class="result-list">
+            <li>Понятная структура аккаунта и досок</li>
+            <li>Темы пинов из вашего старого и нового контента</li>
+            <li>Пины для сохранений, переходов и вопросов перед покупкой</li>
+            <li>Ссылки на конкретные посты, товары и страницы</li>
+            <li>Понимание, что смотреть в статистике дальше</li>
+          </ul>
+        </div>
+
+        <div class="analytics-card">
+          <img src="/ru/assets/intensive-warmtalks-analytics.jpg" alt="Статистика Pinterest проекта Тёплые разговоры за 30 дней" loading="lazy" decoding="async">
+          <div class="analytics-caption">
+            <strong>Мой собственный проект «Тёплые разговоры»</strong>
+            <p>Сайт и Pinterest-аккаунт я собрала с нуля. За месяц активного ведения проект получил первые автоматические продажи, пока я занималась другой работой.</p>
+            <div class="metrics" aria-label="Результаты проекта">
+              <div class="metric"><strong>333,9 тыс.</strong><span>показов за 30 дней</span></div>
+              <div class="metric"><strong>301</strong><span>переход по ссылке</span></div>
+              <div class="metric"><strong>3</strong><span>автоматические продажи</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark">
+      <div class="container about-grid">
+        <div class="about-photo">
+          <img src="/ru/assets/polina.jpg" alt="Полина Соколова, Pinterest-маркетолог и автор PinInstinct" loading="lazy" decoding="async">
+        </div>
+        <div class="about-copy">
+          <div class="eyebrow">Кто ведёт</div>
+          <h2>Меня зовут Полина</h2>
+          <p>Я Pinterest-маркетолог и создатель PinInstinct. Каждый день веду свой аккаунт и аккаунты клиентов, смотрю статистику, делаю пины и проверяю новые идеи на реальных проектах.</p>
+          <p>Мой Telegram-канал <strong>@pinsprint</strong> вырос через Pinterest без покупки рекламы. Первый поток курса прошли 14 человек весной 2026 года.</p>
+          <p>В этой группе я тоже буду работать, а не только выдавать задания. Два своих аккаунта поведу вместе с вами и покажу всю внутрянку.</p>
+          <div class="about-facts">
+            <span class="about-fact">Pinterest каждый день</span>
+            <span class="about-fact">Клиентские и собственные проекты</span>
+            <span class="about-fact">Разборы по ходу работы</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Вопросы</div>
+          <h2>Что обычно хочется уточнить до оплаты</h2>
+        </div>
+
+        <div class="faq-list">
+          <details class="faq-item" open>
+            <summary><span>У меня пока вообще нет аккаунта. Можно идти?</span><span class="faq-icon" aria-hidden="true">+</span></summary>
+            <div class="faq-answer">Да. На первой неделе разберём проект и соберём основу аккаунта: темы, доски, описание и первые ссылки.</div>
+          </details>
+          <details class="faq-item">
+            <summary><span>Аккаунт есть, но показов почти нет. Мне подойдёт?</span><span class="faq-icon" aria-hidden="true">+</span></summary>
+            <div class="faq-answer">Да. Посмотрим, понимает ли Pinterest тему аккаунта, как названы доски, какие пины вы публиковали и есть ли смысл чинить старый аккаунт или проще начать новый.</div>
+          </details>
+          <details class="faq-item">
+            <summary><span>У меня Telegram-канал, я хочу зарабатывать на рекламе. Что будем продвигать?</span><span class="faq-icon" aria-hidden="true">+</span></summary>
+            <div class="faq-answer">Будем делать пины на темы канала и вести людей на конкретные посты. Заодно подготовим канал так, чтобы новый читатель быстро понимал, о чём вы пишете и зачем подписываться.</div>
+          </details>
+          <details class="faq-item">
+            <summary><span>Сколько времени нужно выделять?</span><span class="faq-icon" aria-hidden="true">+</span></summary>
+            <div class="faq-answer">Объём работы можно подстроить под себя. Лучше выделить несколько нормальных рабочих подходов в неделю и приносить вопросы по ходу, чем пытаться сделать всё в последний вечер.</div>
+          </details>
+          <details class="faq-item">
+            <summary><span>За три недели уже будут продажи?</span><span class="faq-icon" aria-hidden="true">+</span></summary>
+            <div class="faq-answer">Pinterest может начать давать показы быстро, а может раскачиваться несколько недель. Продажи зависят ещё и от продукта, цены, страницы и того, что человек увидит после клика. За три недели мы запустим работу и соберём связку от пина до страницы. Обещать одинаковый результат всем было бы странно.</div>
+          </details>
+          <details class="faq-item">
+            <summary><span>Как будет устроена обратная связь на 20 человек?</span><span class="faq-icon" aria-hidden="true">+</span></summary>
+            <div class="faq-answer">Чат работает все три недели. Можно регулярно приносить пины, заголовки, доски, ссылки, страницы и статистику. Я буду отвечать и помогать докручивать работу по ходу.</div>
+          </details>
+          <details class="faq-item">
+            <summary><span>Если я сомневаюсь, что Pinterest подойдёт моей теме?</span><span class="faq-icon" aria-hidden="true">+</span></summary>
+            <div class="faq-answer">Напишите мне до оплаты в Telegram и расскажите, чем занимаетесь. Я честно скажу, вижу ли здесь темы для продвижения и что примерно можно будет делать.</div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-red payment" id="payment">
+      <div class="container payment-grid">
+        <div class="payment-copy">
+          <div class="eyebrow">Набор открыт</div>
+          <h2>Стартуем 10 августа</h2>
+          <p>До 2 августа включительно участие стоит 5 900 ₽. С 3 августа цена будет 7 900 ₽. Набор закроется 9 августа или раньше, если займут все 20 мест.</p>
+        </div>
+
+        <div class="price-card">
+          <div class="price-label">Первая цена до 2 августа</div>
+          <div class="price">5 900 ₽</div>
+          <div class="price-old">С 3 августа - 7 900 ₽</div>
+          <ul>
+            <li>10-30 августа</li>
+            <li>3 живые встречи</li>
+            <li>Полный курс в записи</li>
+            <li>Закрытый чат и обратная связь</li>
+            <li>До 20 участников</li>
+          </ul>
+          <a class="button payment-link" href="https://t.me/pollylova" target="_blank" rel="noopener" data-payment-link>Записаться за 5 900 ₽ <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="logo" href="/">
+          <svg width="17" height="23" viewBox="0 0 20 26" fill="currentColor" aria-hidden="true"><path d="M11 0L0 15h6L3 26l11-15H8L11 0z"/></svg>
+          <span><b>PIN</b><span>INSTINCT</span></span>
+        </a>
+        <p>© 2026 PinInstinct · Полина Соколова</p>
+      </div>
+      <div class="footer-links">
+        <a href="/">Основной курс</a>
+        <a href="/ru/blog/">Блог</a>
+        <a href="https://t.me/pinsprint" target="_blank" rel="noopener">Telegram</a>
+        <a href="https://www.pinterest.com/pinaktivator" target="_blank" rel="noopener">Pinterest</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="mobile-buy" aria-label="Записаться на интенсив">
+    <div><strong>5 900 ₽</strong><span>до 2 августа</span></div>
+    <a class="button payment-link" href="https://t.me/pollylova" target="_blank" rel="noopener" data-payment-link>Записаться</a>
+  </div>
+
+  <script>
+    try {
+      const PAYMENT_URL = "https://t.me/pollylova";
+      document.querySelectorAll("[data-payment-link]").forEach(function(link) {
+        link.href = PAYMENT_URL;
+        link.addEventListener("click", function() {
+          if (typeof ym === "function") ym(109304265, "reachGoal", "intensive_payment_click");
+        });
+      });
+    } catch (e) {
+      console.error("Payment link setup error:", e);
+    }
+  </script>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    try {
+      (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+      })(window,document,"script","https://mc.yandex.ru/metrika/tag.js?id=109304265","ym");
+      ym(109304265,"init",{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",referrer:document.referrer,url:location.href,accurateTrackBounce:true,trackLinks:true});
+    } catch (e) {
+      console.error("Metrika error:", e);
+    }
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/109304265" style="position:absolute;left:-9999px" alt=""></div></noscript>
+  <!-- /Yandex.Metrika counter -->
+</body>
+</html>
